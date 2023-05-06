@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@rpidanny/llm-prompt-templates": [
+        "packages/llm-prompt-templates/src/index.ts"
+      ]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
