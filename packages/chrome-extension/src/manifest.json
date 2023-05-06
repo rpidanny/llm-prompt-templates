@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "ChatGPT Prompt Templates",
+  "description": "Get more out of ChatGPT with awesome prompt templates",
+  "icons": {
+    "128": "assets/img/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/*"],
+      "js": ["contentScript.bundle.js"],
+      "css": ["content.styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["content.styles.css", "assets/img/icon-128.png", "assets/img/icon-34.png"],
+      "matches": []
+    }
+  ]
+}
