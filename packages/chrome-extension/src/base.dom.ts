@@ -1,15 +1,11 @@
 import { templates } from './templates';
 
-const CLASS_SELECTED = 'bg-gray-200';
-const CLASS_OPTIONS = [
-  'p-2',
-  'cursor-pointer',
-  'hover:bg-gray-200',
-  'dark:hover:bg-gray-800',
-];
-const SELECTOR_TEXTAREA = 'div.relative > textarea';
+export abstract class BaseDom {
+  protected abstract name: string;
+  protected abstract textAreaSelector: string;
+  protected abstract templateClasses: string[];
+  protected abstract selectedClassName: string;
 
-export class ChatGPTDom {
   selectedIndex = -1;
   textArea!: HTMLTextAreaElement;
   templatesList!: HTMLUListElement;
@@ -19,23 +15,26 @@ export class ChatGPTDom {
     this.init = this.init.bind(this);
   }
 
+  protected abstract setText(text: string): void;
+
   async init() {
-    console.log('Initializing ChatGPT DOM');
-    await this.getTextArea();
-    await this.addTemplates();
+    console.log(`Initializing ${this.name} DOM`);
+    this.textArea = await this.getTextArea();
+    this.templatesList = await this.addTemplates();
     await this.addEventListeners();
   }
 
-  private async getTextArea(): Promise<void> {
-    const textArea =
-      document.querySelector<HTMLTextAreaElement>(SELECTOR_TEXTAREA);
+  private async getTextArea(): Promise<HTMLTextAreaElement> {
+    const textArea = document.querySelector<HTMLTextAreaElement>(
+      this.textAreaSelector
+    );
 
     if (!textArea) throw new Error('Could not find text area');
 
-    this.textArea = textArea;
+    return textArea;
   }
 
-  private async addTemplates() {
+  private async addTemplates(): Promise<HTMLUListElement> {
     const parent = this.textArea.parentNode;
     if (!parent) throw new Error('Could not find parent node');
 
@@ -46,7 +45,7 @@ export class ChatGPTDom {
 
     for (const template of templates) {
       const option = document.createElement('div');
-      option.classList.add(...CLASS_OPTIONS);
+      option.classList.add(...this.templateClasses);
       option.textContent = template.name;
       option.addEventListener('click', () => {
         this.selectTemplatesMode = false;
@@ -58,7 +57,7 @@ export class ChatGPTDom {
     dropdown.style.display = 'none';
 
     parent.insertBefore(dropdown, this.textArea.nextSibling);
-    this.templatesList = dropdown;
+    return dropdown;
   }
 
   private async showTemplates() {
@@ -127,11 +126,11 @@ export class ChatGPTDom {
 
     // Remove the "selected" class from all templates
     for (let i = 0; i < items.length; i++) {
-      items[i].classList.remove(CLASS_SELECTED);
+      items[i].classList.remove(this.selectedClassName);
     }
 
     // Add the "selected" class to the template at the given index
-    items[index].classList.add(CLASS_SELECTED);
+    items[index].classList.add(this.selectedClassName);
 
     // Scroll down if last visible item is selected and down arrow key is pressed
     if (index >= lastVisibleIndex && index < items.length - 1) {
@@ -157,28 +156,5 @@ export class ChatGPTDom {
       template.content.split('\n').length * 24
     }px`;
     this.hideTemplates();
-  }
-
-  private setText(text: string) {
-    this.textArea.focus();
-    this.textArea.value = text;
-    this.textArea.style.height = this.textArea.scrollHeight + 'px';
-  }
-
-  private simulateTyping(text: string) {
-    this.textArea.value = '';
-    let i = 0;
-    const intervalId = setInterval(() => {
-      if (i >= text.length) {
-        clearInterval(intervalId);
-        return;
-      }
-      const char = text[i];
-      this.textArea.value += text[i];
-      const event = new KeyboardEvent('keypress', { key: char });
-      this.textArea.dispatchEvent(event);
-      this.textArea.style.height = this.textArea.scrollHeight + 'px';
-      i++;
-    }, 20); // type one character every 20ms
   }
 }

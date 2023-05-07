@@ -36,7 +36,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
       chatgptContentScript: path.join(
         config.context,
         'src',
-        'components',
+        'llms',
         'chatgpt',
         'index.ts'
       ),
@@ -161,7 +161,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: 'src/components/chatgpt/chatgpt.content.styles.css',
+            from: 'src/llms/chatgpt/chatgpt.content.styles.css',
             to: path.join(config.output.path),
             force: true,
           },
