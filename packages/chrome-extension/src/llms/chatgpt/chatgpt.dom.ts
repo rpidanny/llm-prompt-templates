@@ -4,19 +4,15 @@ export class ChatGPTDom extends BaseDom {
   protected name = 'ChatGPT';
   protected textAreaSelector = 'div.relative > textarea';
   protected templateClasses = [
-    'p-2',
-    'cursor-pointer',
-    'hover:bg-gray-200',
-    'dark:hover:bg-gray-800',
+    // 'p-2',
+    // 'cursor-pointer',
+    // 'hover:bg-gray-200',
+    // 'dark:hover:bg-gray-800',
   ];
   protected selectedClassName = 'bg-gray-200';
 
-  selectedIndex = -1;
-  textArea!: HTMLTextAreaElement;
-  templatesList!: HTMLUListElement;
-  selectTemplatesMode = false;
-
   protected setText(text: string) {
+    console.log('Setting text', text);
     this.textArea.focus();
     this.textArea.value = text;
     this.textArea.style.height = this.textArea.scrollHeight + 'px';

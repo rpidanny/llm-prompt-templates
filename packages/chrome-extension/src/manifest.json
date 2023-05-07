@@ -9,13 +9,17 @@
     {
       "matches": ["https://chat.openai.com/*"],
       "js": ["chatGPTContentScript.bundle.js"],
-      "css": ["chatgpt.content.styles.css"],
+      "css": ["chatgpt.content.styles.css", "styles.css"],
       "run_at": "document_end"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["assets/img/icon-128.png", "assets/img/icon-34.png"],
+      "resources": [
+        "assets/img/icon-128.png",
+        "assets/img/icon-34.png",
+        "styles.css"
+      ],
       "matches": []
     },
     {

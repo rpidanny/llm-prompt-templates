@@ -1,0 +1,24 @@
+.templates-list {
+  /* position: absolute;
+  z-index: 1000;
+  list-style: none;
+  padding: 0;
+  margin: 0; */
+  /* border: 1px solid #ccc; */
+  /* background-color: #fff; */
+  margin: 5px;
+}
+
+.templates-list div div p {
+  font-size: 0.8rem;
+  padding: 2px;
+}
+
+.templates-list div div .template-name {
+  font-size: 1rem;
+}
+
+.templates-list div div p.template-description {
+  /* color: #ccc; */
+  /* opacity: 0.9; */
+}
