@@ -14,11 +14,7 @@
         "baseHref": "/",
         "main": "packages/chrome-extension/src/index.ts",
         "tsConfig": "packages/chrome-extension/tsconfig.app.json",
-        "assets": [
-          "packages/chrome-extension/src/assets",
-          "packages/chrome-extension/src/assets",
-          "packages/chrome-extension/src/content.styles.css"
-        ],
+        "assets": ["packages/chrome-extension/src/assets"],
         "scripts": [],
         "isolatedConfig": true,
         "webpackConfig": "packages/chrome-extension/webpack.config.js"

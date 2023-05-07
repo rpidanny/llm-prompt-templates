@@ -2,7 +2,12 @@
   "name": "llm-prompt-templates",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx run-many --target=build --all",
+    "test": "nx run-many --target=test --all",
+    "lint": "nx run-many --target=lint --all",
+    "format": "nx format:check"
+  },
   "private": true,
   "dependencies": {
     "@swc/helpers": "~0.5.0",

@@ -11,7 +11,8 @@
         "outputPath": "dist/packages/llm-prompt-templates",
         "main": "packages/llm-prompt-templates/src/index.ts",
         "tsConfig": "packages/llm-prompt-templates/tsconfig.lib.json",
-        "assets": ["packages/llm-prompt-templates/*.md"]
+        "assets": ["packages/llm-prompt-templates/*.md"],
+        "project": "packages/llm-prompt-templates/package.json"
       }
     },
     "publish": {

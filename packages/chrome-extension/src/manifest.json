@@ -8,15 +8,19 @@
   "content_scripts": [
     {
       "matches": ["https://chat.openai.com/*"],
-      "js": ["contentScript.bundle.js"],
-      "css": ["content.styles.css"],
+      "js": ["chatGPTContentScript.bundle.js"],
+      "css": ["chatgpt.content.styles.css"],
       "run_at": "document_end"
     }
   ],
   "web_accessible_resources": [
     {
-      "resources": ["content.styles.css", "assets/img/icon-128.png", "assets/img/icon-34.png"],
+      "resources": ["assets/img/icon-128.png", "assets/img/icon-34.png"],
       "matches": []
+    },
+    {
+      "resources": ["chatgpt.content.styles.css"],
+      "matches": ["https://chat.openai.com/*"]
     }
   ]
 }

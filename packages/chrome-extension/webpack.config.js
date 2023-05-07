@@ -27,11 +27,19 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
   // Update the webpack config as needed here.
   // e.g. `config.plugins.push(new MyPlugin())`
 
+  // console.log(JSON.stringify(config, null, 2));
+
   return {
     context: config.context,
     mode: config.mode,
     entry: {
-      contentScript: path.join(config.context, 'src', 'index.ts'),
+      chatgptContentScript: path.join(
+        config.context,
+        'src',
+        'components',
+        'chatgpt',
+        'index.ts'
+      ),
     },
     output: {
       filename: '[name].bundle.js',
@@ -111,7 +119,12 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
       ],
     },
     resolve: {
-      alias: {},
+      alias: {
+        '@rpidanny/llm-prompt-templates': path.resolve(
+          config.context,
+          '../llm-prompt-templates/src'
+        ),
+      },
       extensions: fileExtensions
         .map((extension) => '.' + extension)
         .concat(['.js', '.jsx', '.ts', '.tsx', '.css']),
@@ -120,7 +133,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
       // isDevelopment && new ReactRefreshWebpackPlugin(),
       new CleanWebpackPlugin({ verbose: false }),
       new webpack.ProgressPlugin(),
-      // new webpack.EnvironmentPlugin(['NODE_ENV']),
+      new webpack.EnvironmentPlugin(['NODE_ENV']),
       ...config.plugins.filter((plugin) => plugin instanceof CopyWebpackPlugin),
       new CopyWebpackPlugin({
         patterns: [
@@ -142,6 +155,15 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
                 )
               );
             },
+          },
+        ],
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'src/components/chatgpt/chatgpt.content.styles.css',
+            to: path.join(config.output.path),
+            force: true,
           },
         ],
       }),
