@@ -1,3 +1,3 @@
-export * from './question'
-export * from './code'
-export * from './pal'
+export * from './code';
+export * from './pal';
+export * from './question';

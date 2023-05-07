@@ -6,5 +6,4 @@ function init() {
   setTimeout(chatGPTDom.init, 1000);
 }
 
-
 init();

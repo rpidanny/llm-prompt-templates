@@ -1,14 +1,14 @@
 import {
-  QuestionWithReasoning,
-  QuestionWithContext,
-  ZeroShotCoT,
-  ZeroShotCoT_APE,
-  WriteTests,
-  OptimizeCode,
-  OptimizeCodeWithDescription,
   CodeErrorHelp,
   GeneralKnowledge,
-  SQLQuery
+  OptimizeCode,
+  OptimizeCodeWithDescription,
+  QuestionWithContext,
+  QuestionWithReasoning,
+  SQLQuery,
+  WriteTests,
+  ZeroShotCoT,
+  ZeroShotCoTAPE,
 } from '@rpidanny/llm-prompt-templates';
 
 export interface Template {
@@ -31,7 +31,7 @@ export const templates: Template[] = [
   },
   {
     name: 'Chain of Thought (APE)',
-    content: ZeroShotCoT_APE,
+    content: ZeroShotCoTAPE,
   },
   {
     name: 'Write Tests',

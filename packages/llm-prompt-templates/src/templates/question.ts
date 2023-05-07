@@ -3,7 +3,7 @@ export const QuestionWithReasoning = `{question}
 Reply in the following pattern:
 THOUGHT: // Your thought here
 CRITICISM: // Criticism of your thought
-ANSWER: // Your final answer`
+ANSWER: // Your final answer`;
 
 export const QuestionWithContext = `Answer the question based on the context below. Keep the answer short. Respond "Unsure about answer" if not sure about the answer.
 
@@ -11,17 +11,17 @@ Context: {context}
 
 Question: {question}
 
-Answer:`
+Answer:`;
 
 // https://arxiv.org/abs/2205.11916
 export const ZeroShotCoT = `{question}
 
-Let's think step by step.`
+Let's think step by step.`;
 
 // https://arxiv.org/abs/2211.01910
-export const ZeroShotCoT_APE = `{question}
+export const ZeroShotCoTAPE = `{question}
 
-Let's work this out in a step by step way to be sure we have the right answer.`
+Let's work this out in a step by step way to be sure we have the right answer.`;
 
 // https://arxiv.org/pdf/2110.08387.pdf
 export const GeneralKnowledge = `Input: Greece is larger than mexico.
@@ -40,4 +40,4 @@ Input: A rock is the same size as a pebble.
 Knowledge: A pebble is a clast of rock with a particle size of 4 to 64 millimetres based on the Udden-Wentworth scale of sedimentology. Pebbles are generally considered larger than granules (2 to 4 millimetres diameter) and smaller than cobbles (64 to 256 millimetres diameter).
 
 Input: {question}
-Knowledge:`
+Knowledge:`;

@@ -62,8 +62,7 @@ def solution():
 Q: {question}
 
 # solution using Python:
-`
-
+`;
 
 export const ObjectCountingPrompt = `
 Q: I have a drum, a flute, a clarinet, a violin, four accordions, a piano, a trombone, and a trumpet. How many musical instruments do I have?
@@ -152,4 +151,4 @@ def solution():
 Q: {question}
 
 # solution using Python:
-`
+`;
