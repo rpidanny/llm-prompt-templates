@@ -1,4 +1,11 @@
-export const RepeatCopyPrompt = `
+import { ITemplate } from '../interfaces';
+
+export const RepeatCopyPrompt: ITemplate = {
+  name: 'Repeat Copy',
+  description: 'Instructs the LLM to repeat a given sequence.',
+  tags: ['sequence', 'copy', 'algorithmic', 'pal'],
+  paper: 'https://arxiv.org/abs/2211.10435',
+  content: `
 Q: say java twice and data once, and then repeat all of this three times.
 
 # solution using Python:
@@ -62,9 +69,16 @@ def solution():
 Q: {question}
 
 # solution using Python:
-`;
+`,
+};
 
-export const ObjectCountingPrompt = `
+export const ObjectCountingPrompt: ITemplate = {
+  name: 'Object Counting',
+  description:
+    'Instructs the LLM to count the number of objects in a given sequence.',
+  tags: ['counting', 'algorithmic', 'pal'],
+  paper: 'https://arxiv.org/abs/2211.10435',
+  content: `
 Q: I have a drum, a flute, a clarinet, a violin, four accordions, a piano, a trombone, and a trumpet. How many musical instruments do I have?
 
 # solution using Python:
@@ -151,4 +165,5 @@ def solution():
 Q: {question}
 
 # solution using Python:
-`;
+`,
+};

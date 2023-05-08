@@ -4,6 +4,6 @@
   "type": "commonjs",
   "exports": {
     ".": "./src/index.js",
-    "./templates": "./src/templates"
+    "./core": "./src/core"
   }
 }

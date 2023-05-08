@@ -60,6 +60,7 @@ export abstract class BaseDom {
     dropdown.classList.add('templates-list');
     dropdown.style.maxHeight = textArea.style.maxHeight;
     dropdown.style.overflowY = 'scroll';
+    dropdown.style.display = 'none';
 
     parent.insertBefore(dropdown, textArea.nextElementSibling);
     return dropdown;

@@ -1,6 +1,7 @@
-import React, { Component, KeyboardEvent } from 'react';
+import './styles.css';
 
-import { ITemplate } from '../../templates';
+import { ITemplate } from '@rpidanny/llm-prompt-templates';
+import React, { Component, KeyboardEvent } from 'react';
 
 type Props = {
   visible: boolean;
@@ -13,6 +14,8 @@ type State = {
 };
 
 class TemplateList extends Component<Props, State> {
+  private itemElements: HTMLDivElement[] = [];
+
   state: State = {
     selectedItemIndex: null,
   };
@@ -30,12 +33,20 @@ class TemplateList extends Component<Props, State> {
   }
 
   handleItemClick = (index: number) => {
-    if (this.props.onItemSelected) {
-      this.props.onItemSelected(this.props.templates[index]);
+    const { onItemSelected, templates } = this.props;
+
+    if (onItemSelected) {
+      onItemSelected(templates[index]);
     }
+
+    this.setState({
+      selectedItemIndex: index,
+    });
+
+    this.itemElements[index].focus();
   };
 
-  handleKeyDown(event: KeyboardEvent) {
+  handleKeyDown = (event: KeyboardEvent) => {
     const { selectedItemIndex } = this.state;
     const { templates, visible } = this.props;
     if (!visible) return;
@@ -61,10 +72,7 @@ class TemplateList extends Component<Props, State> {
 
       case 'Enter':
         if (selectedItemIndex != null) {
-          console.log('Preventing enter event');
-          // Prevent default behavior
           event.preventDefault();
-          // Stop event propagation
           event.stopPropagation();
           this.handleItemClick(selectedItemIndex);
         }
@@ -75,15 +83,17 @@ class TemplateList extends Component<Props, State> {
     }
 
     if (selectedItemIndex !== null) {
-      const itemElement = document.getElementById(`item-${selectedItemIndex}`);
+      const itemElement = this.itemElements[selectedItemIndex];
 
       if (itemElement) {
         itemElement.scrollIntoView({
+          behavior: 'smooth',
           block: 'center',
+          inline: 'nearest',
         });
       }
     }
-  }
+  };
 
   handleKeyPress = (event: KeyboardEvent<HTMLDivElement>, index: number) => {
     if (event.key === 'Enter') {
@@ -98,21 +108,40 @@ class TemplateList extends Component<Props, State> {
     if (!visible) return;
 
     return (
-      <div>
+      <div tabIndex={0}>
         {templates.map((template: ITemplate, index: number) => (
           <div
             id={`item-${index}`}
+            ref={(element) =>
+              (this.itemElements[index] = element as HTMLDivElement)
+            }
             key={index}
             onClick={() => this.handleItemClick(index)}
-            onKeyPress={(event) => this.handleKeyPress(event, index)}
-            tabIndex={0}
+            // onKeyPress={(event) => this.handleKeyPress(event, index)}
+            // tabIndex={0}
             style={{
-              cursor: 'pointer',
-              border: selectedItemIndex === index ? '2px solid' : 'none',
+              // cursor: 'pointer',
+              border: selectedItemIndex === index ? '1px solid' : 'none',
+              borderRadius: '4px',
+              boxShadow: '0px 0px 5px 0px rgba(0, 0, 0, 0.1)',
+              margin: '5px',
+              padding: '3px',
             }}
           >
-            <p className="template-name">{template.name}</p>
-            <p className="template-description">{template.description}</p>
+            <div className="template-title">
+              <span className="template-name">{template.name}</span>
+              {template.tags &&
+                template.tags.map((tag: string) => (
+                  <span key={tag} className="tag">
+                    {tag}
+                  </span>
+                ))}
+            </div>
+            <div>
+              <span className="template-description">
+                {template.description}
+              </span>
+            </div>
           </div>
         ))}
       </div>
