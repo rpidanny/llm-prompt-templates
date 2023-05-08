@@ -1,9 +1,10 @@
-import { ITemplate } from './interfaces';
+import { IPromptTemplate } from './interfaces';
+import { Tag } from './tags.enum';
 
-export const WriteTests: ITemplate = {
+export const WriteTests: IPromptTemplate = {
   name: 'Write Tests',
   description: 'Instructs the LLM to write tests for a given piece of code.',
-  tags: ['code', 'tests'],
+  tags: [Tag.Code, Tag.Test],
   content: `### Instruction ###
 Write tests for the following code:
 
@@ -13,10 +14,10 @@ Write tests for the following code:
 `,
 };
 
-export const OptimizeCode: ITemplate = {
+export const OptimizeCode: IPromptTemplate = {
   name: 'Optimize Code',
   description: 'Instructs the LLM to optimize a given piece of code.',
-  tags: ['code', 'optimization'],
+  tags: [Tag.Code, Tag.Optimization],
   content: `### Instruction ###
 Optimize the code below to make it more clean and efficient.
 
@@ -28,11 +29,11 @@ Only return the rewritten code and nothing else.
 `,
 };
 
-export const OptimizeCodeWithExplanation: ITemplate = {
+export const OptimizeCodeWithExplanation: IPromptTemplate = {
   name: 'Optimize Code with Explanation',
   description:
     'Instructs the LLM to optimize a given piece of code along with explanation.',
-  tags: ['code', 'optimization'],
+  tags: [Tag.Code, Tag.Optimization],
   content: `### Instruction ###
 Optimize the code below to make it more clean and efficient.
 
@@ -44,10 +45,10 @@ Also explain the changes you made to the code.
 `,
 };
 
-export const CodeErrorHelp: ITemplate = {
+export const CodeErrorHelp: IPromptTemplate = {
   name: 'Code Error Help',
   description: 'Asks the LLM to help fix a given piece of code.',
-  tags: ['code', 'error', 'debugging'],
+  tags: [Tag.Code, Tag.Error, Tag.Debugging],
   content: `I am getting this error in my code. Can you please help me?
 
 \`\`\`{language}
@@ -56,10 +57,10 @@ export const CodeErrorHelp: ITemplate = {
 `,
 };
 
-export const SQLQuery: ITemplate = {
+export const SQLQuery: IPromptTemplate = {
   name: 'SQL Query',
   description: 'Asks the LLM to write a SQL query for a given problem',
-  tags: ['code', 'sql'],
+  tags: [Tag.Code, Tag.SQL],
   content: `Table departments, columns = [DepartmentId, DepartmentName]
 Table students, columns = [DepartmentId, StudentId, StudentName]
 Create a MySQL query for all students in the Computer Science Department

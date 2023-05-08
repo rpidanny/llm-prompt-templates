@@ -1,4 +1,4 @@
-export interface ITemplate {
+export interface IPromptTemplate {
   name: string;
   content: string;
   description: string;

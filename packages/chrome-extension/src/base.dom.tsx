@@ -1,44 +1,32 @@
+import { IPromptTemplate } from '@rpidanny/llm-prompt-templates';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import TemplateList from './components/TemplateList';
-import { ITemplate, PromptTemplates } from './templates';
+import PromptTemplates from './components/PromptTemplates';
+import { promptTemplates } from './templates';
 
 export abstract class BaseDom {
   protected abstract name: string;
   protected abstract textAreaSelector: string;
-  protected abstract templateClasses: string[];
-  protected abstract selectedClassName: string;
 
-  selectedIndex = -1;
-  textArea!: HTMLTextAreaElement;
-  templatesList!: HTMLDivElement;
-  selectTemplatesMode = false;
+  templatesView!: HTMLDivElement;
+  isTemplatesViewOpen = false;
 
   constructor() {
     this.init = this.init.bind(this);
     this.handleTemplateSelected = this.handleTemplateSelected.bind(this);
+    this.hideTemplates = this.hideTemplates.bind(this);
   }
 
   protected abstract setText(text: string): void;
 
-  async init() {
+  init() {
     console.log(`Initializing ${this.name} DOM`);
-    this.textArea = this.getTextArea();
-    this.templatesList = await this.createTemplatesElement();
-    await this.addEventListeners();
+    this.templatesView = this.createTemplatesElement();
+    this.addEventListeners();
   }
 
-  private async handleTemplateSelected(template: ITemplate) {
-    console.log(`Selected template: ${template.name}`);
-    this.selectTemplatesMode = false;
-    this.setText(template.content);
-    this.hideTemplates();
-  }
-
-  private getTextArea(): HTMLTextAreaElement {
-    if (this.textArea) return this.textArea;
-
+  protected getTextArea(): HTMLTextAreaElement {
     const textArea = document.querySelector<HTMLTextAreaElement>(
       this.textAreaSelector
     );
@@ -48,70 +36,66 @@ export abstract class BaseDom {
     return textArea;
   }
 
-  private async createTemplatesElement(): Promise<HTMLDivElement> {
-    const textArea = this.getTextArea();
-
-    const parent = textArea.parentNode;
-    if (!parent) throw new Error('Could not find parent node');
-
-    const dropdown = document.createElement('div');
-    dropdown.id = 'templates-list';
-    dropdown.tabIndex = 0;
-    dropdown.classList.add('templates-list');
-    dropdown.style.maxHeight = textArea.style.maxHeight;
-    dropdown.style.overflowY = 'scroll';
-    dropdown.style.display = 'none';
-
-    parent.insertBefore(dropdown, textArea.nextElementSibling);
-    return dropdown;
+  private handleTemplateSelected(template: IPromptTemplate): void {
+    this.isTemplatesViewOpen = false;
+    this.setText(template.content);
+    this.hideTemplates();
   }
 
-  private async render() {
+  private createTemplatesElement(): HTMLDivElement {
+    const templatesView = document.createElement('div');
+    document.body.appendChild(templatesView);
+    return templatesView;
+  }
+
+  private render() {
     ReactDOM.render(
-      <TemplateList
-        templates={PromptTemplates}
-        visible={this.selectTemplatesMode}
+      <PromptTemplates
+        templates={promptTemplates}
+        visible={this.isTemplatesViewOpen}
         onItemSelected={this.handleTemplateSelected}
+        onCancel={this.hideTemplates}
       />,
-      this.templatesList
+      this.templatesView
     );
   }
 
-  private async showTemplates() {
-    this.selectTemplatesMode = true;
-    this.templatesList.style.display = 'block';
+  private showTemplates() {
+    this.isTemplatesViewOpen = true;
     this.render();
-    this.templatesList.focus();
+    this.templatesView.focus();
   }
 
-  private async hideTemplates() {
-    this.selectTemplatesMode = false;
-    this.templatesList.style.display = 'none';
+  private hideTemplates() {
+    this.isTemplatesViewOpen = false;
     this.render();
   }
 
-  private async addEventListeners() {
-    // hotkeys listener
+  private addHotKeysEventListener() {
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') {
-        console.log('Closing templates');
+      if (event.key === 'Escape' || event.key === 'q') {
         this.hideTemplates();
       } else if (event.ctrlKey && event.key === 't') {
-        console.log('Hotkey pressed');
         this.showTemplates();
       }
     });
+  }
 
-    // textarea listener
-    this.getTextArea().addEventListener('input', async (event) => {
+  private addTextAreaEventListener() {
+    this.getTextArea().addEventListener('input', (event) => {
       const input = event.target as HTMLTextAreaElement;
       const text = input.value;
 
       if (text === '/templates') {
         this.showTemplates();
-      } else if (this.selectTemplatesMode) {
+      } else if (this.isTemplatesViewOpen) {
         this.hideTemplates();
       }
     });
+  }
+
+  private addEventListeners() {
+    this.addHotKeysEventListener();
+    this.addTextAreaEventListener();
   }
 }

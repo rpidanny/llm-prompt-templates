@@ -1,6 +1,6 @@
-import { ITemplate } from '../interfaces';
+import { IPromptTemplate } from '../interfaces';
 
-export const RepeatCopyPrompt: ITemplate = {
+export const RepeatCopyPrompt: IPromptTemplate = {
   name: 'Repeat Copy',
   description: 'Instructs the LLM to repeat a given sequence.',
   tags: ['sequence', 'copy', 'algorithmic', 'pal'],
@@ -72,7 +72,7 @@ Q: {question}
 `,
 };
 
-export const ObjectCountingPrompt: ITemplate = {
+export const ObjectCountingPrompt: IPromptTemplate = {
   name: 'Object Counting',
   description:
     'Instructs the LLM to count the number of objects in a given sequence.',

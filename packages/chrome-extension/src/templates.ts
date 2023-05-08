@@ -1,6 +1,7 @@
 import {
   CodeErrorHelp,
   GeneralKnowledge,
+  IPromptTemplate,
   OptimizeCode,
   OptimizeCodeWithExplanation,
   QuestionWithContext,
@@ -11,14 +12,7 @@ import {
   ZeroShotCoTAPE,
 } from '@rpidanny/llm-prompt-templates';
 
-export interface ITemplate {
-  name: string;
-  content: string;
-  description: string;
-  paper?: string;
-}
-
-export const GeneralPrompts: ITemplate[] = [
+export const GeneralPrompts: IPromptTemplate[] = [
   QuestionWithReasoning,
   QuestionWithContext,
   ZeroShotCoT,
@@ -26,7 +20,7 @@ export const GeneralPrompts: ITemplate[] = [
   GeneralKnowledge,
 ];
 
-export const CodePrompts: ITemplate[] = [
+export const CodePrompts: IPromptTemplate[] = [
   WriteTests,
   OptimizeCode,
   OptimizeCodeWithExplanation,
@@ -34,4 +28,7 @@ export const CodePrompts: ITemplate[] = [
   SQLQuery,
 ];
 
-export const PromptTemplates: ITemplate[] = [...GeneralPrompts, ...CodePrompts];
+export const promptTemplates: IPromptTemplate[] = [
+  ...GeneralPrompts,
+  ...CodePrompts,
+];
