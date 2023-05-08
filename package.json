@@ -6,7 +6,8 @@
     "build": "nx run-many --target=build --all",
     "test": "nx run-many --target=test --all",
     "lint": "nx run-many --target=lint --all",
-    "format": "nx format:check"
+    "format:check": "nx format:check --all",
+    "format:write": "nx format:write --all"
   },
   "private": true,
   "dependencies": {
