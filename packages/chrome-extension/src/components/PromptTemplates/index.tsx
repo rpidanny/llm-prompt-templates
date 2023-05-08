@@ -51,7 +51,7 @@ class PromptTemplates extends Component<Props, State> {
                           rel="noopener noreferrer"
                           onClick={(e) => e.stopPropagation()}
                         >
-                          <Tag color="magenta">Paper</Tag>
+                          <Tag color="green">Paper</Tag>
                         </a>,
                       ]
                     : []
