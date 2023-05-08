@@ -1,12 +1,18 @@
 # LLM Prompt Templates Chrome Extension
 
-The LLM Prompt Templates Chrome Extension is a powerful tool that offers quick access to a collection of reusable prompt templates for various LLMs, including ChatGPT, Bard, and Bing. With this extension installed, you can easily insert effective and relevant prompts with just a few clicks.
+The LLM Prompt Templates Chrome Extension is a powerful tool that offers quick access to a collection of reusable prompt templates for various LLMs. With this extension installed, you can easily insert effective and relevant prompts with just a few clicks.
+
+| LLM                                 | Status   |
+| ----------------------------------- | -------- |
+| [ChatGPT](https://chat.openai.com/) | 🎉 Done  |
+| [Bard](https://bard.google.com/)    | 📝 To-do |
+| Bing                                | 📝 To-do |
 
 ## Installation
 
 To install the LLM Prompt Templates Chrome Extension, follow these simple steps:
 
-1. Download the latest release from the GitHub repository.
+1. Download the latest [release](https://github.com/rpidanny/llm-prompt-templates/releases) from the GitHub repository.
 2. Unzip the downloaded file.
 3. Open Chrome and navigate to `chrome://extensions`.
 4. Enable Developer mode.

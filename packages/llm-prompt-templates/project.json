@@ -39,6 +39,13 @@
           "codeCoverage": true
         }
       }
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx semantic-release-plus --extends ./packages/llm-prompt-templates/release.config.js"
+      }
     }
   },
   "tags": []

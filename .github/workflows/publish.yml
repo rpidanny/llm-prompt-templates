@@ -1,17 +1,18 @@
-name: CI
-
+name: Publish
 on:
   push:
-    # branches:
-    #   - main
+    branches:
+      - main
 
 jobs:
-  main:
-    name: 'CI'
+  release:
+    name: Release
     runs-on: ubuntu-latest
     permissions:
-      contents: 'read'
-      actions: 'read'
+      actions: read
+      contents: write
+      issues: write
+      pull-requests: write
     steps:
       - uses: actions/checkout@v3
         with:
@@ -20,8 +21,14 @@ jobs:
       - uses: nrwl/nx-set-shas@v3
 
       - run: npm ci
-
       # - run: npx nx format:check
       - run: npx nx affected -t lint --parallel=3
       - run: npx nx affected -t test --parallel=3 --configuration=ci
       - run: npx nx affected -t build --parallel=3
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          npx nx affected --target release --parallel=3

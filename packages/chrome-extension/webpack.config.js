@@ -6,6 +6,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ReactRefreshTypeScript = require('react-refresh-typescript');
 const TerserPlugin = require('terser-webpack-plugin');
+const ZipPlugin = require('zip-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -166,6 +167,10 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
             force: true,
           },
         ],
+      }),
+      new ZipPlugin({
+        filename: `${process.env.npm_package_name}-chrome-extension.zip`,
+        path: path.join(config.output.path, '../', 'zip'),
       }),
     ].filter(Boolean),
     infrastructureLogging: {

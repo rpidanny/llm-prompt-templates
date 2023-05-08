@@ -1,6 +1,11 @@
 {
-  "name": "LLM Prompt Templates",
-  "version": "0.0.0",
-  "description": "Get more out of ChatGPT with awesome prompt templates",
-  "type": "commonjs"
+  "name": "llm-prompt-templates",
+  "version": "1.0.0",
+  "description": "Get more out of your LLM with the latest advances in prompt engineering",
+  "type": "commonjs",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rpidanny/llm-prompt-templates.git",
+    "directory": "packages/chrome-extension"
+  }
 }
