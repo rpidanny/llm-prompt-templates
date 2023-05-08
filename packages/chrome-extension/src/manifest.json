@@ -1,9 +1,10 @@
 {
   "manifest_version": 3,
-  "name": "ChatGPT Prompt Templates",
-  "description": "Get more out of ChatGPT with awesome prompt templates",
+  "name": "LLM Prompt Templates",
+  "description": "Get more out of your LLM with the latest advances in prompt engineering",
   "icons": {
-    "128": "assets/img/icon-128.png"
+    "128": "assets/img/icon-128.png",
+    "256": "assets/img/icon-256.png"
   },
   "content_scripts": [
     {
@@ -17,7 +18,7 @@
     {
       "resources": [
         "assets/img/icon-128.png",
-        "assets/img/icon-34.png",
+        "assets/img/icon-256.png",
         "styles.css"
       ],
       "matches": []
