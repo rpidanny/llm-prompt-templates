@@ -1,6 +1,6 @@
 {
   "name": "llm-prompt-templates",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Get more out of your LLM with the latest advances in prompt engineering",
   "type": "commonjs",
   "repository": {

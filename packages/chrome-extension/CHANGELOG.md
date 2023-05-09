@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.0.0...chrome-extension-v1.0.1) (2023-05-09)
+
+
+### Bug Fixes
+
+* sql query prompt template ([d866055](https://github.com/rpidanny/llm-prompt-templates/commit/d8660559f6b0cef3cc8292748fc9155fd62e7dea))
+
 # 1.0.0 (2023-05-08)
 
 ### Bug Fixes
