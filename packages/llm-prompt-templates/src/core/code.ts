@@ -61,8 +61,11 @@ export const SQLQuery: IPromptTemplate = {
   name: 'SQL Query',
   description: 'Asks the LLM to write a SQL query for a given problem',
   tags: [Tag.Code, Tag.SQL],
-  content: `Table departments, columns = [DepartmentId, DepartmentName]
-Table students, columns = [DepartmentId, StudentId, StudentName]
-Create a MySQL query for all students in the Computer Science Department
+  content: `### Instruction ###
+Write a MySQL query for {problem}.
+
+Use the following tables:
+Table {table1}, columns = [{columns1}}]
+Table {table2}, columns = [{columns2}}]
 `,
 };
