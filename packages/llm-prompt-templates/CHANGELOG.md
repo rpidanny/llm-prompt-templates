@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.0.0...llm-prompt-templates-v1.0.1) (2023-05-09)
+
+
+### Bug Fixes
+
+* npm dist dir ([31ef9eb](https://github.com/rpidanny/llm-prompt-templates/commit/31ef9eb3e79fd7323e0b9441dbafc23dfa4a6413))
+
 # 1.0.0 (2023-05-09)
 
 
