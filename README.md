@@ -12,8 +12,9 @@ The LLM Prompt Templates project consists of two main components:
 
 2. [chrome-extension](./packages/chrome-extension/): A Chrome extension that utilizes the prompt templates to offer quick access to them in various LLMs, including ChatGPT, Bard, and Bing.
 
-<!-- ## Why LLM Prompt Templates?
+https://user-images.githubusercontent.com/6696862/236962137-dd338532-aca2-4c12-95a9-4708e6321be8.mov
 
+<!-- ## Why LLM Prompt Templates?
 While LLMs are incredibly powerful, they are not infallible. Sometimes, a gentle nudge with good prompt engineering can give way better results. LLM Prompt Templates aims to make it easier for developers and users of LLMs to leverage the latest advancements in prompt engineering to improve the quality of their outputs. -->
 
 ## Contributing
