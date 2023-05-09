@@ -40,13 +40,13 @@ module.exports = {
         changelogFile: `${srcRoot}/CHANGELOG.md`,
       },
     ],
-    '@semantic-release/npm',
-    // [
-    //   '@semantic-release/github',
-    //   {
-    //     assets: [],
-    //   },
-    // ],
+    [
+      '@semantic-release/npm',
+      {
+        npmPublish: true,
+        tarballDir: `dist/${srcRoot}`,
+      },
+    ],
     [
       '@semantic-release/git',
       {
