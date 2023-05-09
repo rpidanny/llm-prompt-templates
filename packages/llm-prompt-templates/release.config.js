@@ -44,7 +44,7 @@ module.exports = {
       '@semantic-release/npm',
       {
         npmPublish: true,
-        tarballDir: `dist/${srcRoot}`,
+        pkgRoot: `dist/${srcRoot}`,
       },
     ],
     [
