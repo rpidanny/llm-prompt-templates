@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.0.1...llm-prompt-templates-v1.0.2) (2023-05-09)
+
+
+### Bug Fixes
+
+* npm package pkgRoot ([a267f09](https://github.com/rpidanny/llm-prompt-templates/commit/a267f095b8d4bf91b0f68afcef251677aeb06a4f))
+
 ## [1.0.1](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.0.0...llm-prompt-templates-v1.0.1) (2023-05-09)
 
 
