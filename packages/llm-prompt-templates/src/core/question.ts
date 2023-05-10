@@ -1,3 +1,4 @@
+import { PromptTemplateCategory } from './categories.enum';
 import { IPromptTemplate } from './interfaces';
 import { Tag } from './tags.enum';
 
@@ -5,6 +6,7 @@ export const QuestionWithReasoning: IPromptTemplate = {
   name: 'Question with Reasoning',
   description: `This prompt guides critical thinking by instructing the LLM to provide it's initial thoughts, critique them, and provide a final answer.`,
   tags: [Tag.Question, Tag.Reasoning],
+  category: PromptTemplateCategory.General,
   content: `{question}
 
 Reply in the following pattern:
@@ -17,6 +19,7 @@ export const QuestionWithContext: IPromptTemplate = {
   name: 'Question with Context',
   description: `This prompt asks the LLM to answer a question based on a provided context.`,
   tags: [Tag.Question, Tag.Context],
+  category: PromptTemplateCategory.General,
   content: `Answer the question based on the context below. Keep the answer short. Respond "Unsure about answer" if not sure about the answer.
 
 Context: {context}
@@ -31,6 +34,7 @@ export const ZeroShotCoT: IPromptTemplate = {
   name: 'Zero-Shot CoT',
   description: `Chain-of-thought (CoT) prompting enables complex reasoning capabilities through intermediate reasoning steps. Useful for more complex arithmetic, commonsense, and symbolic reasoning tasks.`,
   tags: [Tag.ChainOfThought, Tag.Reasoning],
+  category: PromptTemplateCategory.General,
   paper: 'https://arxiv.org/abs/2205.11916',
   content: `{question}
 
@@ -42,6 +46,7 @@ export const ZeroShotCoTAPE: IPromptTemplate = {
   name: 'Zero-Shot CoT (APE)',
   description: `Chain-of-thought (CoT) prompt discovered by automatic prompt engineer (APE) which is better than the human engineered zero-shot CoT prompt.`,
   tags: [Tag.ChainOfThought, Tag.Reasoning, Tag.AutomaticPromptEngineer],
+  category: PromptTemplateCategory.General,
   paper: 'https://arxiv.org/abs/2211.01910',
   content: `{question}
 
@@ -53,6 +58,7 @@ export const GeneralKnowledge: IPromptTemplate = {
   name: 'General Knowledge',
   description: `Incorporates general knowledge or information to help the model make more accurate common sense reasoning.`,
   tags: [Tag.GeneralKnowledge, Tag.Reasoning],
+  category: PromptTemplateCategory.General,
   paper: 'https://arxiv.org/abs/2110.08387',
   content: `Input: Greece is larger than mexico.
 Knowledge: Greece is approximately 131,957 sq km, while Mexico is approximately 1,964,375 sq km, making Mexico 1,389% larger than Greece.
