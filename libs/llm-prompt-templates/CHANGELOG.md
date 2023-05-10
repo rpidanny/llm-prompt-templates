@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.0.2...llm-prompt-templates-v1.1.0) (2023-05-10)
+
+
+### Features
+
+* add prompt category selection ([#1](https://github.com/rpidanny/llm-prompt-templates/issues/1)) ([4b8e10b](https://github.com/rpidanny/llm-prompt-templates/commit/4b8e10bdf7c8508786ea6ddc234ca917cec99c43))
+
 ## [1.0.2](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.0.1...llm-prompt-templates-v1.0.2) (2023-05-09)
 
 
