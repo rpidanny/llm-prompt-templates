@@ -1,3 +1,5 @@
+## [1.1.1](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.1.0...chrome-extension-v1.1.1) (2023-05-10)
+
 # [1.1.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.0.1...chrome-extension-v1.1.0) (2023-05-10)
 
 
