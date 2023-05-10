@@ -8,9 +8,9 @@ LLMs are smart, but sometimes a gentle nudge with good prompt engineering can gi
 
 The LLM Prompt Templates project consists of two main components:
 
-1. [llm-prompt-templates](./packages/llm-prompt-templates/): A NPM package that provides a collection of reusable prompt templates. This package is designed to work with a variety of LLMs and can be easily integrated into your existing workflows.
+1. [llm-prompt-templates](./libs/llm-prompt-templates/): A NPM package that provides a collection of reusable prompt templates. This package is designed to work with a variety of LLMs and can be easily integrated into your existing workflows.
 
-2. [chrome-extension](./packages/chrome-extension/): A Chrome extension that utilizes the prompt templates to offer quick access to them in various LLMs, including ChatGPT, Bard, and Bing.
+2. [chrome-extension](./apps/chrome-extension/): A Chrome extension that utilizes the prompt templates to offer quick access to them in various LLMs, including ChatGPT, Bard, and Bing.
 
 https://user-images.githubusercontent.com/6696862/236962137-dd338532-aca2-4c12-95a9-4708e6321be8.mov
 
