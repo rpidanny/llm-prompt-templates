@@ -7,6 +7,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ReactRefreshTypeScript = require('react-refresh-typescript');
 const TerserPlugin = require('terser-webpack-plugin');
 const ZipPlugin = require('zip-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -37,10 +38,13 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
       chatgptContentScript: path.join(
         config.context,
         'src',
+        'pages',
+        'Content',
         'llms',
         'chatgpt',
         'index.ts'
       ),
+      popup: path.join(config.context, 'src', 'pages', 'Popup', 'index.tsx'),
     },
     output: {
       filename: '[name].bundle.js',
@@ -162,11 +166,23 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: 'src/llms/chatgpt/chatgpt.content.styles.css',
+            from: 'src/pages/Content/llms/chatgpt/chatgpt.content.styles.css',
             to: path.join(config.output.path),
             force: true,
           },
         ],
+      }),
+      new HtmlWebpackPlugin({
+        template: path.join(
+          config.context,
+          'src',
+          'pages',
+          'Popup',
+          'index.html'
+        ),
+        filename: 'popup.html',
+        chunks: ['popup'],
+        cache: false,
       }),
       new ZipPlugin({
         filename: `${process.env.npm_package_name}-chrome-extension.zip`,

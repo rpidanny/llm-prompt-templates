@@ -6,11 +6,15 @@
     "128": "assets/img/icon-128.png",
     "256": "assets/img/icon-256.png"
   },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "assets/img/icon-256.png"
+  },
   "content_scripts": [
     {
       "matches": ["https://chat.openai.com/*"],
       "js": ["chatGPTContentScript.bundle.js"],
-      "css": ["chatgpt.content.styles.css", "styles.css"],
+      "css": ["chatgpt.content.styles.css"],
       "run_at": "document_end"
     }
   ],
@@ -27,5 +31,6 @@
       "resources": ["chatgpt.content.styles.css"],
       "matches": ["https://chat.openai.com/*"]
     }
-  ]
+  ],
+  "permissions": ["storage"]
 }

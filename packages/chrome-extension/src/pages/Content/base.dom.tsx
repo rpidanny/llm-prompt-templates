@@ -2,8 +2,8 @@ import { IPromptTemplate } from '@rpidanny/llm-prompt-templates';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
-import PromptTemplates from './components/PromptTemplates';
-import { promptTemplates } from './templates';
+import PromptTemplates from '../../components/PromptTemplates';
+import { promptCategories } from './templates';
 
 export abstract class BaseDom {
   protected abstract name: string;
@@ -48,10 +48,10 @@ export abstract class BaseDom {
     return templatesView;
   }
 
-  private render() {
+  private async render() {
     ReactDOM.render(
       <PromptTemplates
-        templates={promptTemplates}
+        promptCategories={promptCategories}
         visible={this.isTemplatesViewOpen}
         onItemSelected={this.handleTemplateSelected}
         onCancel={this.hideTemplates}
@@ -60,15 +60,15 @@ export abstract class BaseDom {
     );
   }
 
-  private showTemplates() {
+  private async showTemplates() {
     this.isTemplatesViewOpen = true;
-    this.render();
+    await this.render();
     this.templatesView.focus();
   }
 
-  private hideTemplates() {
+  private async hideTemplates() {
     this.isTemplatesViewOpen = false;
-    this.render();
+    await this.render();
   }
 
   private addHotKeysEventListener() {
