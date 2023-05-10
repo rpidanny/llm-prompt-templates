@@ -1,0 +1,52 @@
+{
+  "name": "llm-prompt-templates",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/llm-prompt-templates/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/llm-prompt-templates",
+        "main": "libs/llm-prompt-templates/src/index.ts",
+        "tsConfig": "libs/llm-prompt-templates/tsconfig.lib.json",
+        "assets": ["libs/llm-prompt-templates/*.md"],
+        "project": "libs/llm-prompt-templates/package.json"
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs llm-prompt-templates {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/llm-prompt-templates/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/llm-prompt-templates/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "release": {
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx semantic-release-plus --extends ./libs/llm-prompt-templates/release.config.js"
+      }
+    }
+  },
+  "tags": []
+}

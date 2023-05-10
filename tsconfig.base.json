@@ -15,9 +15,9 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@rpidanny/llm-prompt-templates": ["packages/llm-prompt-templates/src"],
-      "@rpidanny/llm-prompt-templates/templates": [
-        "packages/llm-prompt-templates/src/templates"
+      "@rpidanny/llm-prompt-templates": ["libs/llm-prompt-templates/src"],
+      "@rpidanny/llm-prompt-templates/core": [
+        "libs/llm-prompt-templates/src/core"
       ]
     }
   },

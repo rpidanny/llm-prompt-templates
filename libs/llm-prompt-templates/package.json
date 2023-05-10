@@ -1,0 +1,17 @@
+{
+  "name": "@rpidanny/llm-prompt-templates",
+  "version": "1.0.1",
+  "type": "commonjs",
+  "exports": {
+    ".": "./src/index.js",
+    "./core": "./src/core"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rpidanny/llm-prompt-templates.git",
+    "directory": "libs/llm-prompt-templates"
+  }
+}
