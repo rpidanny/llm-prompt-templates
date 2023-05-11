@@ -8,6 +8,7 @@ const ReactRefreshTypeScript = require('react-refresh-typescript');
 const TerserPlugin = require('terser-webpack-plugin');
 const ZipPlugin = require('zip-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { version } = require('./package.json');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -161,7 +162,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
                 JSON.stringify(
                   {
                     description: process.env.npm_package_description,
-                    version: process.env.npm_package_version,
+                    version: version,
                     ...JSON.parse(content.toString()),
                   },
                   null,
@@ -203,7 +204,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
         cache: false,
       }),
       new ZipPlugin({
-        filename: `${process.env.npm_package_name}-chrome-extension.zip`,
+        filename: `${process.env.npm_package_name}-chrome-extension-v${version}.zip`,
         path: path.join(config.output.path, '../', 'zip'),
       }),
     ].filter(Boolean),

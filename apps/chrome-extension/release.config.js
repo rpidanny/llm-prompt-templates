@@ -44,13 +44,12 @@ module.exports = {
       '@semantic-release/npm',
       {
         npmPublish: false,
-        tarballDir: `${srcRoot}`,
       },
     ],
     [
       '@semantic-release/github',
       {
-        assets: [`dist/apps/zip/*.zip`],
+        assets: [],
       },
     ],
     [
