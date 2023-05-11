@@ -2,7 +2,7 @@ import './styles.css';
 
 import { StarOutlined, StarTwoTone } from '@ant-design/icons';
 import { IPrompt } from '@rpidanny/llm-prompt-templates';
-import { Checkbox, List, Tag, Typography } from 'antd';
+import { List, Tag, Typography } from 'antd';
 import React, { MouseEvent } from 'react';
 
 const { Text } = Typography;
@@ -10,10 +10,18 @@ const { Text } = Typography;
 type Props = {
   title: string;
   prompts: IPrompt[];
+  favoritePrompts: Set<string>;
   onItemSelected: (template: IPrompt) => void;
+  onFavoriteClick: (template: IPrompt) => void;
 };
 
-const PromptsList: React.FC<Props> = ({ title, prompts, onItemSelected }) => {
+const PromptsList: React.FC<Props> = ({
+  title,
+  prompts,
+  favoritePrompts,
+  onItemSelected,
+  onFavoriteClick,
+}) => {
   const handleItemClick = (index: number) => {
     onItemSelected(prompts[index]);
   };
@@ -21,7 +29,7 @@ const PromptsList: React.FC<Props> = ({ title, prompts, onItemSelected }) => {
   const handleFavoriteClick = (item: IPrompt, e: MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('item', item);
+    onFavoriteClick(item);
   };
 
   return (
@@ -61,11 +69,20 @@ const PromptsList: React.FC<Props> = ({ title, prompts, onItemSelected }) => {
           onClick={() => handleItemClick(idx)}
           className={'template-list-item'}
         >
-          <StarOutlined
-            type="star"
-            style={{ fontSize: '24px', marginRight: '12px' }}
-            onClick={(e) => handleFavoriteClick(item, e)}
-          />
+          {favoritePrompts.has(item.name) ? (
+            <StarTwoTone
+              type="star"
+              twoToneColor="gold"
+              style={{ fontSize: '20px', marginRight: '12px' }}
+              onClick={(e) => handleFavoriteClick(item, e)}
+            />
+          ) : (
+            <StarOutlined
+              type="star"
+              style={{ fontSize: '20px', marginRight: '12px', color: 'gray' }}
+              onClick={(e) => handleFavoriteClick(item, e)}
+            />
+          )}
           <List.Item.Meta title={item.name} description={item.description} />
         </List.Item>
       )}

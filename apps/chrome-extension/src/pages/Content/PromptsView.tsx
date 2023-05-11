@@ -22,22 +22,45 @@ const PromptsView: React.FC<Props> = ({
   onCancel,
   onItemSelected,
 }) => {
-  const localStorageKey = 'enabledPromptCategories';
+  const enabledPromptCategoryKey = 'enabledPromptCategories';
+  const favoritePromptsKey = 'favoritePrompts';
 
   const [enabledCategories, setEnabledCategories] = useState<string[]>([]);
+  const [favoritePrompts, setFavoritePrompts] = useState<IPrompt[]>([]);
 
   useEffect(() => {
     chrome.storage.local.get(
-      [localStorageKey],
+      [enabledPromptCategoryKey, favoritePromptsKey],
       (result: { [x: string]: string }) => {
-        if (result[localStorageKey]) {
-          setEnabledCategories(result[localStorageKey].split(','));
+        // enabledPromptCategoryKey
+        if (result[enabledPromptCategoryKey]) {
+          setEnabledCategories(result[enabledPromptCategoryKey].split(','));
         } else {
           setEnabledCategories(Object.keys(PromptCategory));
+        }
+
+        // favoritePromptsKey
+        if (result[favoritePromptsKey]) {
+          setFavoritePrompts(JSON.parse(result[favoritePromptsKey]));
+        } else {
+          setFavoritePrompts([]);
         }
       }
     );
   }, [visible]);
+
+  const handleFavoriteClick = (item: IPrompt) => {
+    const newFavoritePrompts = favoritePrompts.filter(
+      (p) => p.name !== item.name
+    );
+    if (newFavoritePrompts.length === favoritePrompts.length) {
+      newFavoritePrompts.push(item);
+    }
+    setFavoritePrompts(newFavoritePrompts);
+    chrome.storage.local.set({
+      [favoritePromptsKey]: JSON.stringify(newFavoritePrompts),
+    });
+  };
 
   return (
     <Modal
@@ -59,13 +82,24 @@ const PromptsView: React.FC<Props> = ({
       footer={null}
     >
       <div style={{ maxHeight: '80vh', overflowY: 'scroll' }}>
+        {favoritePrompts.length > 0 && (
+          <PromptsList
+            title={`⭐️ Favorites`}
+            prompts={favoritePrompts}
+            favoritePrompts={new Set(favoritePrompts.map((p) => p.name))}
+            onItemSelected={onItemSelected}
+            onFavoriteClick={handleFavoriteClick}
+          />
+        )}
         {(Object.entries(groupedPrompts) as [PromptCategory, IPromptCategory][])
           .filter(([categoryName]) => enabledCategories.includes(categoryName))
           .map(([categoryName, category]) => (
             <PromptsList
               title={`${category.emoji} ${categoryName}`}
               prompts={category.prompts}
+              favoritePrompts={new Set(favoritePrompts.map((p) => p.name))}
               onItemSelected={onItemSelected}
+              onFavoriteClick={handleFavoriteClick}
             />
           ))}
       </div>
