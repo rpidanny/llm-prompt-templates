@@ -36,7 +36,7 @@ jobs:
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: 'dist/packages/zip/*.zip'
+          file: 'dist/apps/zip/*.zip'
           file_glob: true
           overwrite: true
           tag: ${{ github.event.release.tag_name || inputs.tag }}
