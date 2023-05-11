@@ -1,20 +1,35 @@
 import './styles.css';
 
+import { StarOutlined, StarTwoTone } from '@ant-design/icons';
 import { IPrompt } from '@rpidanny/llm-prompt-templates';
 import { List, Tag, Typography } from 'antd';
-import React from 'react';
+import React, { MouseEvent } from 'react';
 
 const { Text } = Typography;
 
 type Props = {
   title: string;
   prompts: IPrompt[];
+  favoritePromptsSet: Set<string>;
   onItemSelected: (template: IPrompt) => void;
+  onFavoriteClick: (template: IPrompt) => void;
 };
 
-const PromptsList: React.FC<Props> = ({ title, prompts, onItemSelected }) => {
+const PromptsList: React.FC<Props> = ({
+  title,
+  prompts,
+  favoritePromptsSet,
+  onItemSelected,
+  onFavoriteClick,
+}) => {
   const handleItemClick = (index: number) => {
     onItemSelected(prompts[index]);
+  };
+
+  const handleFavoriteClick = (item: IPrompt, e: MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    onFavoriteClick(item);
   };
 
   return (
@@ -54,6 +69,20 @@ const PromptsList: React.FC<Props> = ({ title, prompts, onItemSelected }) => {
           onClick={() => handleItemClick(idx)}
           className={'template-list-item'}
         >
+          {favoritePromptsSet.has(item.name) ? (
+            <StarTwoTone
+              type="star"
+              twoToneColor="gold"
+              style={{ fontSize: '20px', marginRight: '12px' }}
+              onClick={(e) => handleFavoriteClick(item, e)}
+            />
+          ) : (
+            <StarOutlined
+              type="star"
+              style={{ fontSize: '20px', marginRight: '12px', color: 'gray' }}
+              onClick={(e) => handleFavoriteClick(item, e)}
+            />
+          )}
           <List.Item.Meta title={item.name} description={item.description} />
         </List.Item>
       )}
