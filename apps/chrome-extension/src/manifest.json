@@ -16,6 +16,12 @@
       "js": ["chatGPTContentScript.bundle.js"],
       "css": ["chatgpt.content.styles.css"],
       "run_at": "document_end"
+    },
+    {
+      "matches": ["https://bard.google.com/*"],
+      "js": ["bardContentScript.bundle.js"],
+      "css": ["bard.content.styles.css"],
+      "run_at": "document_end"
     }
   ],
   "web_accessible_resources": [
