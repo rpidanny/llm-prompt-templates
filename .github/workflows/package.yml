@@ -15,7 +15,7 @@ jobs:
   package-chrome-extension:
     name: Package Chrome Extension
     runs-on: ubuntu-latest
-    if: ${{startsWith(github.event.release.tag_name, 'chrome-extension-')}}
+    if: ${{startsWith(github.event.release.tag_name, 'chrome-extension-') || startsWith(inputs.tag, 'chrome-extension-')}}
     permissions:
       actions: write
       contents: write
