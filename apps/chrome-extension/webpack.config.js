@@ -35,6 +35,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
     context: config.context,
     mode: config.mode,
     entry: {
+      popup: path.join(config.context, 'src', 'pages', 'Popup', 'index.tsx'),
       chatgptContentScript: path.join(
         config.context,
         'src',
@@ -44,7 +45,15 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
         'chatgpt',
         'index.ts'
       ),
-      popup: path.join(config.context, 'src', 'pages', 'Popup', 'index.tsx'),
+      bardContentScript: path.join(
+        config.context,
+        'src',
+        'pages',
+        'Content',
+        'llms',
+        'bard',
+        'index.ts'
+      ),
     },
     output: {
       filename: '[name].bundle.js',
@@ -167,6 +176,15 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
         patterns: [
           {
             from: 'src/pages/Content/llms/chatgpt/chatgpt.content.styles.css',
+            to: path.join(config.output.path),
+            force: true,
+          },
+        ],
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'src/pages/Content/llms/bard/bard.content.styles.css',
             to: path.join(config.output.path),
             force: true,
           },

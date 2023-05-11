@@ -5,7 +5,7 @@ The LLM Prompt Templates Chrome Extension is a powerful tool that offers quick a
 | LLM                                 | Status   |
 | ----------------------------------- | -------- |
 | [ChatGPT](https://chat.openai.com/) | 🎉 Done  |
-| [Bard](https://bard.google.com/)    | 📝 To-do |
+| [Bard](https://bard.google.com/)    | 🎉 Done  |
 | Bing                                | 📝 To-do |
 
 ## Installation
