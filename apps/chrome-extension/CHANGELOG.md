@@ -1,6 +1,18 @@
 # [1.2.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.1.1...chrome-extension-v1.2.0) (2023-05-11)
 
 
+### Bug Fixes
+
+* release configs ([#5](https://github.com/rpidanny/llm-prompt-templates/issues/5)) ([b5d6b1b](https://github.com/rpidanny/llm-prompt-templates/commit/b5d6b1b439792a76cfd1be9e669373c454106be6))
+
+
+### Features
+
+* add support for bard ([#4](https://github.com/rpidanny/llm-prompt-templates/issues/4)) ([2b3072f](https://github.com/rpidanny/llm-prompt-templates/commit/2b3072f199186a518569e0afd4a03bb355b29d33))
+
+# [1.2.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.1.1...chrome-extension-v1.2.0) (2023-05-11)
+
+
 ### Features
 
 * add support for bard ([#4](https://github.com/rpidanny/llm-prompt-templates/issues/4)) ([2b3072f](https://github.com/rpidanny/llm-prompt-templates/commit/2b3072f199186a518569e0afd4a03bb355b29d33))
