@@ -1,4 +1,4 @@
-name: Publish
+name: Release
 on:
   push:
     branches:
@@ -21,14 +21,14 @@ jobs:
       - uses: nrwl/nx-set-shas@v3
 
       - run: npm ci
-      # - run: npx nx format:check
+      - run: npx nx format:check
       - run: npx nx affected -t lint --parallel=3
       - run: npx nx affected -t test --parallel=3 --configuration=ci
       - run: npx nx affected -t build --parallel=3
 
       - name: Release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.PAT_GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          npx nx affected --target release --parallel=1
+          npx nx affected --target release --parallel=false

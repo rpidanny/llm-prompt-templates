@@ -1,3 +1,5 @@
+## [1.0.3](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.0.2...llm-prompt-templates-v1.0.3) (2023-05-11)
+
 ## [1.0.3](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.0.2...llm-prompt-templates-v1.0.3) (2023-05-10)
 
 # [1.1.0](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.0.2...llm-prompt-templates-v1.1.0) (2023-05-10)

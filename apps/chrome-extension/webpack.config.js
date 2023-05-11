@@ -8,6 +8,7 @@ const ReactRefreshTypeScript = require('react-refresh-typescript');
 const TerserPlugin = require('terser-webpack-plugin');
 const ZipPlugin = require('zip-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { version } = require('./package.json');
 
 const isDevelopment = process.env.NODE_ENV !== 'production';
 
@@ -35,6 +36,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
     context: config.context,
     mode: config.mode,
     entry: {
+      popup: path.join(config.context, 'src', 'pages', 'Popup', 'index.tsx'),
       chatgptContentScript: path.join(
         config.context,
         'src',
@@ -44,7 +46,15 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
         'chatgpt',
         'index.ts'
       ),
-      popup: path.join(config.context, 'src', 'pages', 'Popup', 'index.tsx'),
+      bardContentScript: path.join(
+        config.context,
+        'src',
+        'pages',
+        'Content',
+        'llms',
+        'bard',
+        'index.ts'
+      ),
     },
     output: {
       filename: '[name].bundle.js',
@@ -152,7 +162,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
                 JSON.stringify(
                   {
                     description: process.env.npm_package_description,
-                    version: process.env.npm_package_version,
+                    version: version,
                     ...JSON.parse(content.toString()),
                   },
                   null,
@@ -172,6 +182,15 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
           },
         ],
       }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'src/pages/Content/llms/bard/bard.content.styles.css',
+            to: path.join(config.output.path),
+            force: true,
+          },
+        ],
+      }),
       new HtmlWebpackPlugin({
         template: path.join(
           config.context,
@@ -185,7 +204,7 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
         cache: false,
       }),
       new ZipPlugin({
-        filename: `${process.env.npm_package_name}-chrome-extension.zip`,
+        filename: `${process.env.npm_package_name}-chrome-extension-v${version}.zip`,
         path: path.join(config.output.path, '../', 'zip'),
       }),
     ].filter(Boolean),
