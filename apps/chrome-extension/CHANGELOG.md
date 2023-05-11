@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.3.0...chrome-extension-v1.4.0) (2023-05-11)
+
+
+### Features
+
+* enable prompt template on all urls ([#7](https://github.com/rpidanny/llm-prompt-templates/issues/7)) ([709da43](https://github.com/rpidanny/llm-prompt-templates/commit/709da431f01e66c5746ded35204101259af9a586))
+
 # [1.3.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.2.0...chrome-extension-v1.3.0) (2023-05-11)
 
 
