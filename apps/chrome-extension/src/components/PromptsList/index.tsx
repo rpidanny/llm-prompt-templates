@@ -10,7 +10,7 @@ const { Text } = Typography;
 type Props = {
   title: string;
   prompts: IPrompt[];
-  favoritePrompts: Set<string>;
+  favoritePromptsSet: Set<string>;
   onItemSelected: (template: IPrompt) => void;
   onFavoriteClick: (template: IPrompt) => void;
 };
@@ -18,7 +18,7 @@ type Props = {
 const PromptsList: React.FC<Props> = ({
   title,
   prompts,
-  favoritePrompts,
+  favoritePromptsSet,
   onItemSelected,
   onFavoriteClick,
 }) => {
@@ -69,7 +69,7 @@ const PromptsList: React.FC<Props> = ({
           onClick={() => handleItemClick(idx)}
           className={'template-list-item'}
         >
-          {favoritePrompts.has(item.name) ? (
+          {favoritePromptsSet.has(item.name) ? (
             <StarTwoTone
               type="star"
               twoToneColor="gold"

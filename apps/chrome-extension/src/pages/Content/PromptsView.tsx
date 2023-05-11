@@ -86,7 +86,7 @@ const PromptsView: React.FC<Props> = ({
           <PromptsList
             title={`⭐️ Favorites`}
             prompts={favoritePrompts}
-            favoritePrompts={new Set(favoritePrompts.map((p) => p.name))}
+            favoritePromptsSet={new Set(favoritePrompts.map((p) => p.name))}
             onItemSelected={onItemSelected}
             onFavoriteClick={handleFavoriteClick}
           />
@@ -97,7 +97,7 @@ const PromptsView: React.FC<Props> = ({
             <PromptsList
               title={`${category.emoji} ${categoryName}`}
               prompts={category.prompts}
-              favoritePrompts={new Set(favoritePrompts.map((p) => p.name))}
+              favoritePromptsSet={new Set(favoritePrompts.map((p) => p.name))}
               onItemSelected={onItemSelected}
               onFavoriteClick={handleFavoriteClick}
             />
