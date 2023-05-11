@@ -55,6 +55,13 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
         'bard',
         'index.ts'
       ),
+      defaultContentScript: path.join(
+        config.context,
+        'src',
+        'pages',
+        'Content',
+        'generic.dom.ts'
+      ),
     },
     output: {
       filename: '[name].bundle.js',

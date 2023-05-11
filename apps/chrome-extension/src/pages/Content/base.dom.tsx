@@ -7,95 +7,72 @@ import PromptsView from './PromptsView';
 
 export abstract class BaseDom {
   protected abstract name: string;
-  protected abstract textAreaSelector: string;
 
-  templatesView!: HTMLDivElement;
-  isTemplatesViewOpen = false;
+  promptsView!: HTMLDivElement;
+  isPromptsViewOpen = false;
 
   constructor() {
     this.init = this.init.bind(this);
-    this.handleTemplateSelected = this.handleTemplateSelected.bind(this);
-    this.hideTemplates = this.hideTemplates.bind(this);
+    this.handlePromptSelected = this.handlePromptSelected.bind(this);
+    this.hidePrompts = this.hidePrompts.bind(this);
   }
 
-  protected abstract setText(text: string): void;
+  protected abstract addCustomTrigger(): void;
+  protected abstract usePrompt(prompt: IPrompt): void;
 
   init() {
     console.log(`Initializing ${this.name} DOM`);
-    this.templatesView = this.createTemplatesElement();
-    this.addEventListeners();
+    this.promptsView = this.createPromptsElement();
+    this.addTriggers();
   }
 
-  protected getTextArea(): HTMLTextAreaElement {
-    const textArea = document.querySelector<HTMLTextAreaElement>(
-      this.textAreaSelector
-    );
-
-    if (!textArea) throw new Error('Could not find text area');
-
-    return textArea;
+  private handlePromptSelected(prompt: IPrompt): void {
+    this.isPromptsViewOpen = false;
+    this.usePrompt(prompt);
+    this.hidePrompts();
   }
 
-  private handleTemplateSelected(template: IPrompt): void {
-    this.isTemplatesViewOpen = false;
-    this.setText(template.content);
-    this.hideTemplates();
-  }
-
-  private createTemplatesElement(): HTMLDivElement {
-    const templatesView = document.createElement('div');
-    document.body.appendChild(templatesView);
-    return templatesView;
+  private createPromptsElement(): HTMLDivElement {
+    const promptsView = document.createElement('div');
+    document.body.appendChild(promptsView);
+    return promptsView;
   }
 
   private async render() {
     ReactDOM.render(
       <PromptsView
         groupedPrompts={groupedPrompts}
-        visible={this.isTemplatesViewOpen}
-        onItemSelected={this.handleTemplateSelected}
-        onCancel={this.hideTemplates}
+        visible={this.isPromptsViewOpen}
+        onItemSelected={this.handlePromptSelected}
+        onCancel={this.hidePrompts}
       />,
-      this.templatesView
+      this.promptsView
     );
   }
 
-  private async showTemplates() {
-    this.isTemplatesViewOpen = true;
+  protected async showPrompts() {
+    this.isPromptsViewOpen = true;
     await this.render();
-    this.templatesView.focus();
+    this.promptsView.focus();
   }
 
-  private async hideTemplates() {
-    this.isTemplatesViewOpen = false;
+  protected async hidePrompts() {
+    this.isPromptsViewOpen = false;
     await this.render();
   }
 
-  private addHotKeysEventListener() {
+  private addHotKeysTrigger() {
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' || event.key === 'q') {
-        this.hideTemplates();
+        this.hidePrompts();
       } else if (event.ctrlKey && event.key === 't') {
-        this.showTemplates();
+        this.showPrompts();
       }
     });
   }
 
-  private addTextAreaEventListener() {
-    this.getTextArea().addEventListener('input', (event) => {
-      const input = event.target as HTMLTextAreaElement;
-      const text = input.value;
-
-      if (text === '/templates') {
-        this.showTemplates();
-      } else if (this.isTemplatesViewOpen) {
-        this.hideTemplates();
-      }
-    });
-  }
-
-  private addEventListeners() {
-    this.addHotKeysEventListener();
-    this.addTextAreaEventListener();
+  private addTriggers() {
+    this.addHotKeysTrigger();
+    this.addCustomTrigger();
   }
 }
