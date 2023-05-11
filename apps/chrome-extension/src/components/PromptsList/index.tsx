@@ -1,8 +1,9 @@
 import './styles.css';
 
+import { StarOutlined, StarTwoTone } from '@ant-design/icons';
 import { IPrompt } from '@rpidanny/llm-prompt-templates';
-import { List, Tag, Typography } from 'antd';
-import React from 'react';
+import { Checkbox, List, Tag, Typography } from 'antd';
+import React, { MouseEvent } from 'react';
 
 const { Text } = Typography;
 
@@ -15,6 +16,12 @@ type Props = {
 const PromptsList: React.FC<Props> = ({ title, prompts, onItemSelected }) => {
   const handleItemClick = (index: number) => {
     onItemSelected(prompts[index]);
+  };
+
+  const handleFavoriteClick = (item: IPrompt, e: MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('item', item);
   };
 
   return (
@@ -54,6 +61,11 @@ const PromptsList: React.FC<Props> = ({ title, prompts, onItemSelected }) => {
           onClick={() => handleItemClick(idx)}
           className={'template-list-item'}
         >
+          <StarOutlined
+            type="star"
+            style={{ fontSize: '24px', marginRight: '12px' }}
+            onClick={(e) => handleFavoriteClick(item, e)}
+          />
           <List.Item.Meta title={item.name} description={item.description} />
         </List.Item>
       )}
