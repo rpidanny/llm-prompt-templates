@@ -1,14 +1,6 @@
-import { BaseDom } from '../../base.dom';
+import { ChatGPTDom } from '../chatgpt/chatgpt.dom';
 
-export class BardDom extends BaseDom {
+export class BardDom extends ChatGPTDom {
   protected name = 'Bard';
   protected textAreaSelector = 'div > textarea';
-
-  protected setText(text: string) {
-    const textArea = this.getTextArea();
-    console.log('Setting text', text);
-    textArea.focus();
-    textArea.value = text;
-    textArea.style.height = textArea.scrollHeight + 'px';
-  }
 }

@@ -22,6 +22,14 @@
       "js": ["bardContentScript.bundle.js"],
       "css": ["bard.content.styles.css"],
       "run_at": "document_end"
+    },
+    {
+      "matches": ["<all_urls>"],
+      "exclude_matches": [
+        "https://chat.openai.com/*",
+        "https://bard.google.com/*"
+      ],
+      "js": ["defaultContentScript.bundle.js"]
     }
   ],
   "web_accessible_resources": [
@@ -36,6 +44,10 @@
     {
       "resources": ["chatgpt.content.styles.css"],
       "matches": ["https://chat.openai.com/*"]
+    },
+    {
+      "resources": ["bard.content.styles.css"],
+      "matches": ["https://bard.google.com/*"]
     }
   ],
   "permissions": ["storage"]
