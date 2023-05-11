@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.2.0...chrome-extension-v1.3.0) (2023-05-11)
+
+
+### Features
+
+* add favourites ([#6](https://github.com/rpidanny/llm-prompt-templates/issues/6)) ([1067788](https://github.com/rpidanny/llm-prompt-templates/commit/1067788157efa9a65064d240a4bba7804dd3858a))
+
 # [1.2.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.1.1...chrome-extension-v1.2.0) (2023-05-11)
 
 
