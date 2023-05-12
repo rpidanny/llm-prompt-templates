@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.0.3...llm-prompt-templates-v1.1.0) (2023-05-12)
+
+
+### Features
+
+* add summarization prompts ([#9](https://github.com/rpidanny/llm-prompt-templates/issues/9)) ([693ee2b](https://github.com/rpidanny/llm-prompt-templates/commit/693ee2b63e65dc7dae5ab34ef41f5e9b8505a24e))
+
 ## [1.0.3](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.0.2...llm-prompt-templates-v1.0.3) (2023-05-11)
 
 ## [1.0.3](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.0.2...llm-prompt-templates-v1.0.3) (2023-05-10)
