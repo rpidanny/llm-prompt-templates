@@ -53,6 +53,36 @@ export const ZeroShotCoTAPEPrompt: IPrompt = {
 Let's work this out in a step by step way to be sure we have the right answer.`,
 };
 
+export const BasicSummarizationPrompt: IPrompt = {
+  name: 'Basic Summarization',
+  description: `This prompt asks the LLM to summarize a given text.`,
+  tags: [Tag.Summarization],
+  category: PromptCategory.General,
+  content: `Write a concise summary of the following text delimited by triple backquotes.
+Please provide your output in a manner that a 5 year old would understand.
+
+\`\`\`
+{text}
+\`\`\`
+
+SUMMARY:`,
+};
+
+export const SummarizationIntoListPrompt: IPrompt = {
+  name: 'Summarization Into List',
+  description: `This prompt asks the LLM to summarize a given text into a list of bullet points.`,
+  tags: [Tag.Summarization],
+  category: PromptCategory.General,
+  content: `Write a concise summary of the following text delimited by triple backquotes.
+Return your response in bullet points which covers the key points of the text.
+
+\`\`\`
+{text}
+\`\`\`
+
+BULLET POINT SUMMARY:`,
+};
+
 // https://arxiv.org/abs/2110.08387
 export const GeneralKnowledgePrompt: IPrompt = {
   name: 'General Knowledge',

@@ -1,4 +1,5 @@
 import {
+  BasicSummarizationPrompt,
   CodeErrorHelpPrompt,
   GeneralKnowledgePrompt,
   IPrompt,
@@ -8,6 +9,7 @@ import {
   QuestionWithContextPrompt,
   QuestionWithReasoningPrompt,
   SQLQueryPrompt,
+  SummarizationIntoListPrompt,
   WriteTestsPrompt,
   ZeroShotCoTAPEPrompt,
   ZeroShotCoTPrompt,
@@ -30,6 +32,8 @@ const generalPrompts: IPrompt[] = [
   QuestionWithContextPrompt,
   ZeroShotCoTPrompt,
   ZeroShotCoTAPEPrompt,
+  BasicSummarizationPrompt,
+  SummarizationIntoListPrompt,
   GeneralKnowledgePrompt,
 ];
 
