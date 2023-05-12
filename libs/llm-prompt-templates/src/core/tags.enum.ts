@@ -11,4 +11,5 @@ export enum Tag {
   Error = 'error',
   Debugging = 'debugging',
   SQL = 'sql',
+  Summarization = 'summarization',
 }
