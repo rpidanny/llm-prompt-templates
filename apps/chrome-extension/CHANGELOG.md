@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.4.0...chrome-extension-v1.5.0) (2023-05-12)
+
+
+### Features
+
+* add summarization prompts ([#9](https://github.com/rpidanny/llm-prompt-templates/issues/9)) ([693ee2b](https://github.com/rpidanny/llm-prompt-templates/commit/693ee2b63e65dc7dae5ab34ef41f5e9b8505a24e))
+
 # [1.4.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.3.0...chrome-extension-v1.4.0) (2023-05-11)
 
 
