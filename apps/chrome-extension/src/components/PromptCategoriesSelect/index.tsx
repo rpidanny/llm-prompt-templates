@@ -17,6 +17,7 @@ interface SelectPromptCategoriesProps {
 const colorOptions: Record<string, string> = {
   General: 'gold',
   Code: 'cyan',
+  Writing: 'green',
 };
 
 function PromptCategoriesSelect({

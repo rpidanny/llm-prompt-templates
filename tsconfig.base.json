@@ -18,6 +18,15 @@
       "@rpidanny/llm-prompt-templates": ["libs/llm-prompt-templates/src"],
       "@rpidanny/llm-prompt-templates/core": [
         "libs/llm-prompt-templates/src/core"
+      ],
+      "@rpidanny/llm-prompt-templates/core/writing": [
+        "libs/llm-prompt-templates/src/core/writing.ts"
+      ],
+      "@rpidanny/llm-prompt-templates/core/general": [
+        "libs/llm-prompt-templates/src/core/general.ts"
+      ],
+      "@rpidanny/llm-prompt-templates/core/code": [
+        "libs/llm-prompt-templates/src/core/code.ts"
       ]
     }
   },
