@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.5.0...chrome-extension-v1.6.0) (2023-05-13)
+
+
+### Features
+
+* add writing prompts ([#10](https://github.com/rpidanny/llm-prompt-templates/issues/10)) ([8be94ed](https://github.com/rpidanny/llm-prompt-templates/commit/8be94ed55e71539b1f58c677ca9f2f1d3295b243))
+
 # [1.5.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.4.0...chrome-extension-v1.5.0) (2023-05-12)
 
 
