@@ -4,7 +4,10 @@
   "type": "commonjs",
   "exports": {
     ".": "./src/index.js",
-    "./core": "./src/core"
+    "./core": "./src/core",
+    "./core/code": "./src/core/code.ts",
+    "./core/general": "./src/core/general.ts",
+    "./core/writing": "./src/core/writing.ts"
   },
   "publishConfig": {
     "access": "public"

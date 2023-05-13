@@ -1,19 +1,26 @@
+import { IPrompt, PromptCategory } from '@rpidanny/llm-prompt-templates';
 import {
-  BasicSummarizationPrompt,
   CodeErrorHelpPrompt,
-  GeneralKnowledgePrompt,
-  IPrompt,
   OptimizeCodePrompt,
   OptimizeCodeWithExplanationPrompt,
-  PromptCategory,
+  SQLQueryPrompt,
+  WriteTestsPrompt,
+} from '@rpidanny/llm-prompt-templates/core/code';
+import {
+  BasicSummarizationPrompt,
+  GeneralKnowledgePrompt,
   QuestionWithContextPrompt,
   QuestionWithReasoningPrompt,
-  SQLQueryPrompt,
   SummarizationIntoListPrompt,
-  WriteTestsPrompt,
   ZeroShotCoTAPEPrompt,
   ZeroShotCoTPrompt,
-} from '@rpidanny/llm-prompt-templates';
+} from '@rpidanny/llm-prompt-templates/core/general';
+import {
+  ProofReadAndCorrectPrompt,
+  ProofReadPrompt,
+  RewriteToCoolPrompt,
+  RewriteToFormalPrompt,
+} from '@rpidanny/llm-prompt-templates/core/writing';
 
 export interface IPromptCategory {
   prompts: IPrompt[];
@@ -24,6 +31,7 @@ export interface IPromptCategory {
 
 export interface IGroupedPrompts {
   [PromptCategory.Code]: IPromptCategory;
+  [PromptCategory.Writing]: IPromptCategory;
   [PromptCategory.General]: IPromptCategory;
 }
 
@@ -45,12 +53,25 @@ const codePrompts: IPrompt[] = [
   SQLQueryPrompt,
 ];
 
+const writingPrompts: IPrompt[] = [
+  RewriteToFormalPrompt,
+  RewriteToCoolPrompt,
+  ProofReadPrompt,
+  ProofReadAndCorrectPrompt,
+];
+
 export const groupedPrompts: IGroupedPrompts = {
   [PromptCategory.General]: {
     prompts: generalPrompts,
     emoji: '🌍',
     color: 'gold',
     name: PromptCategory.General,
+  },
+  [PromptCategory.Writing]: {
+    prompts: writingPrompts,
+    emoji: '📝',
+    color: 'green',
+    name: PromptCategory.Writing,
   },
   [PromptCategory.Code]: {
     prompts: codePrompts,

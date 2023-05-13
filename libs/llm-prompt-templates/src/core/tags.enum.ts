@@ -12,4 +12,7 @@ export enum Tag {
   Debugging = 'debugging',
   SQL = 'sql',
   Summarization = 'summarization',
+  Transform = 'transform',
+  Documentation = 'documentation',
+  ProofRead = 'proofread',
 }
