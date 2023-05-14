@@ -21,7 +21,7 @@ export class ChatGPTDom extends BaseDom {
       const input = event.target as HTMLTextAreaElement;
       const text = input.value;
 
-      if (text === '/templates') {
+      if (text === '/templates' || text === '/lpt') {
         this.showPrompts();
       } else if (this.isPromptsViewOpen) {
         this.hidePrompts();

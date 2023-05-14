@@ -65,7 +65,14 @@ export abstract class BaseDom {
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' || event.key === 'q') {
         this.hidePrompts();
-      } else if (event.ctrlKey && event.key === 't') {
+      } else if (
+        (event.ctrlKey && event.key === 't') ||
+        ((event.altKey ||
+          event.code === 'AltLeft' ||
+          event.code === 'AltRight') &&
+          event.shiftKey &&
+          event.code === 'KeyP')
+      ) {
         this.showPrompts();
       }
     });

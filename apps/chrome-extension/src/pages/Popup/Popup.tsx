@@ -43,8 +43,9 @@ function Popup() {
             textAlign: 'center',
           }}
         >
-          <code>Ctrl + T</code> or typing <code>/templates</code> opens prompt
-          templates page.
+          Pressing <code>Alt/Option + Shift + P</code> in any page or typing{' '}
+          <code>/templates</code> or <code>/lpt</code> in ChatGPT or Bard opens
+          prompt templates page.
         </div>
       </Content>
     </Layout>
