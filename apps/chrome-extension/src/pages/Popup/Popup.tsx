@@ -43,8 +43,8 @@ function Popup() {
             textAlign: 'center',
           }}
         >
-          <code>Ctrl + T</code> or typing <code>/templates</code> opens prompt
-          templates page.
+          <code>Alt/Option + Shift + P</code> or typing <code>/templates</code>{' '}
+          opens prompt templates page.
         </div>
       </Content>
     </Layout>

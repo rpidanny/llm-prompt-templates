@@ -22,7 +22,7 @@ To install the LLM Prompt Templates Chrome Extension, follow these simple steps:
 
 Once installed, you can use the LLM Prompt Templates Chrome Extension in two ways:
 
-1. **Using the hotkey**: Press `Ctrl + T` to open the prompt templates menu. You can then select the desired prompt template from the list and insert it into the LLM input field.
+1. **Using the hotkey**: Press `Alt/Option + Shift + P` to open the prompt templates menu. You can then select the desired prompt template from the list and insert it into the LLM input field.
 
 2. **Using the command**: Type `/templates` in the LLM input field to open the prompt templates menu. You can then select the desired prompt template from the list and insert it into the LLM input field.
 
