@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.6.0...chrome-extension-v1.7.0) (2023-05-14)
+
+
+### Features
+
+* add new hotkeys ([#11](https://github.com/rpidanny/llm-prompt-templates/issues/11)) ([e07451f](https://github.com/rpidanny/llm-prompt-templates/commit/e07451fddde4572270d787c5b8a7be63fcab7576))
+
 # [1.6.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.5.0...chrome-extension-v1.6.0) (2023-05-13)
 
 
