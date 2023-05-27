@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.2.0...llm-prompt-templates-v1.3.0) (2023-05-27)
+
+
+### Features
+
+* add tree of thought prompts ([#13](https://github.com/rpidanny/llm-prompt-templates/issues/13)) ([c9ec39a](https://github.com/rpidanny/llm-prompt-templates/commit/c9ec39a12edd12b8416a8c4a3720ba4f32f7899e))
+
 # [1.2.0](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.1.0...llm-prompt-templates-v1.2.0) (2023-05-13)
 
 
