@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.7.0...chrome-extension-v1.8.0) (2023-05-27)
+
+
+### Features
+
+* add tree of thought prompts ([#13](https://github.com/rpidanny/llm-prompt-templates/issues/13)) ([c9ec39a](https://github.com/rpidanny/llm-prompt-templates/commit/c9ec39a12edd12b8416a8c4a3720ba4f32f7899e))
+
 # [1.7.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.6.0...chrome-extension-v1.7.0) (2023-05-14)
 
 
