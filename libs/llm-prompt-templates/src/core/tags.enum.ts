@@ -15,4 +15,5 @@ export enum Tag {
   Transform = 'transform',
   Documentation = 'documentation',
   ProofRead = 'proofread',
+  TreeOfThought = 'tree-of-thought',
 }
