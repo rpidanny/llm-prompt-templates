@@ -53,6 +53,39 @@ export const ZeroShotCoTAPEPrompt: IPrompt = {
 Let's work this out in a step by step way to be sure we have the right answer.`,
 };
 
+export const TreeOfThoughtPromptV1: IPrompt = {
+  name: 'Tree of Thought V1',
+  description:
+    "The Tree of Thoughts (ToT) framework improves language models' problem-solving abilities by allowing deliberate decision making through exploration and strategic lookahead",
+  tags: [Tag.TreeOfThought, Tag.Reasoning],
+  category: PromptCategory.General,
+  paper: 'https://arxiv.org/abs/2305.10601',
+  content: `Imagine three different experts are answering this question.
+All experts will write down 1 step of their thinking, then share it with the group.
+Then all experts will go on to the next step, etc.
+If any expert realises they're wrong at any point then they leave. The question is...
+
+{question}
+`,
+};
+
+export const TreeOfThoughtPromptV2: IPrompt = {
+  name: 'Tree of Thought V2',
+  description:
+    "The Tree of Thoughts (ToT) framework improves language models' problem-solving abilities by allowing deliberate decision making through exploration and strategic lookahead",
+  tags: [Tag.TreeOfThought, Tag.Reasoning],
+  category: PromptCategory.General,
+  paper: 'https://arxiv.org/abs/2305.10601',
+  content: `Simulate three brilliant, logical experts collaboratively answering a question.
+Each one verbosely explains their thought process in real-time, considering the prior explanations of others and openly acknowledging mistakes.
+At each step, whenever possible, each expert refines and builds upon the thoughts of others, acknowledging their contributions.
+They continue until there is a definitive answer to the question.
+For clarity, your entire response should be in a markdown table. The question is...
+
+{question}
+`,
+};
+
 export const BasicSummarizationPrompt: IPrompt = {
   name: 'Basic Summarization',
   description: `This prompt asks the LLM to summarize a given text.`,

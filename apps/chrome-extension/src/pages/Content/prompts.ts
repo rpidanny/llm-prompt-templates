@@ -12,6 +12,8 @@ import {
   QuestionWithContextPrompt,
   QuestionWithReasoningPrompt,
   SummarizationIntoListPrompt,
+  TreeOfThoughtPromptV1,
+  TreeOfThoughtPromptV2,
   ZeroShotCoTAPEPrompt,
   ZeroShotCoTPrompt,
 } from '@rpidanny/llm-prompt-templates/core/general';
@@ -40,6 +42,8 @@ const generalPrompts: IPrompt[] = [
   QuestionWithContextPrompt,
   ZeroShotCoTPrompt,
   ZeroShotCoTAPEPrompt,
+  TreeOfThoughtPromptV1,
+  TreeOfThoughtPromptV2,
   BasicSummarizationPrompt,
   SummarizationIntoListPrompt,
   GeneralKnowledgePrompt,
