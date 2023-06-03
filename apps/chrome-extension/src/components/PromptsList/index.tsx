@@ -2,7 +2,7 @@ import './styles.css';
 
 import { StarOutlined, StarTwoTone } from '@ant-design/icons';
 import { IPrompt } from '@rpidanny/llm-prompt-templates';
-import { List, Tag, Typography } from 'antd';
+import { List, Tag, Tooltip, Typography } from 'antd';
 import React, { MouseEvent } from 'react';
 
 const { Text } = Typography;
@@ -69,20 +69,23 @@ const PromptsList: React.FC<Props> = ({
           onClick={() => handleItemClick(idx)}
           className={'template-list-item'}
         >
-          {favoritePromptsSet.has(item.name) ? (
-            <StarTwoTone
-              type="star"
-              twoToneColor="gold"
-              style={{ fontSize: '20px', marginRight: '12px' }}
-              onClick={(e) => handleFavoriteClick(item, e)}
-            />
-          ) : (
-            <StarOutlined
-              type="star"
-              style={{ fontSize: '20px', marginRight: '12px', color: 'gray' }}
-              onClick={(e) => handleFavoriteClick(item, e)}
-            />
-          )}
+          <Tooltip title="Favorite" color={'gold'}>
+            {favoritePromptsSet.has(item.name) ? (
+              <StarTwoTone
+                type="star"
+                twoToneColor="gold"
+                style={{ fontSize: '20px', marginRight: '12px' }}
+                onClick={(e) => handleFavoriteClick(item, e)}
+              />
+            ) : (
+              <StarOutlined
+                type="star"
+                style={{ fontSize: '20px', marginRight: '12px', color: 'gray' }}
+                onClick={(e) => handleFavoriteClick(item, e)}
+              />
+            )}
+          </Tooltip>
+
           <List.Item.Meta title={item.name} description={item.description} />
         </List.Item>
       )}
