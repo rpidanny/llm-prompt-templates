@@ -1,4 +1,5 @@
 import { IPrompt } from '@rpidanny/llm-prompt-templates';
+import { message } from 'antd';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
@@ -28,7 +29,16 @@ export abstract class BaseDom {
 
   private handlePromptSelected(prompt: IPrompt): void {
     this.isPromptsViewOpen = false;
-    this.usePrompt(prompt);
+    try {
+      this.usePrompt(prompt);
+    } catch (error) {
+      console.error(error);
+      message.error(
+        'Failed to use prompt. Copying prompt to clipboard instead.',
+        5
+      );
+      this.copyPromptToClipboard(prompt);
+    }
     this.hidePrompts();
   }
 
@@ -48,6 +58,15 @@ export abstract class BaseDom {
       />,
       this.promptsView
     );
+  }
+
+  protected copyPromptToClipboard(prompt: IPrompt) {
+    const clipboardItem = new ClipboardItem({
+      'text/plain': new Blob([prompt.content], { type: 'text/plain' }),
+    });
+    navigator.clipboard.write([clipboardItem]);
+
+    message.info(`${prompt.name} prompt copied to clipboard`, 7);
   }
 
   protected async showPrompts() {
