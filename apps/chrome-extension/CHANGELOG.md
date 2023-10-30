@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.8.0...chrome-extension-v1.8.1) (2023-10-30)
+
+
+### Bug Fixes
+
+* bard text area selector ([#16](https://github.com/rpidanny/llm-prompt-templates/issues/16)) ([1c85d6a](https://github.com/rpidanny/llm-prompt-templates/commit/1c85d6a474b2e0eb3ddd2cfe9e205f79cf14c3ac))
+
 # [1.8.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.7.0...chrome-extension-v1.8.0) (2023-05-27)
 
 
