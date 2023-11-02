@@ -41,6 +41,12 @@ module.exports = {
       },
     ],
     [
+      '@rpidanny/semantic-release-update-package.json',
+      {
+        packageJsonPath: `${srcRoot}/package.json`,
+      },
+    ],
+    [
       '@semantic-release/npm',
       {
         npmPublish: false,
