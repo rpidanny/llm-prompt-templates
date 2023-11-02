@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.3.0...llm-prompt-templates-v1.3.1) (2023-11-02)
+
+
+### Bug Fixes
+
+* update package.json version on release ([#17](https://github.com/rpidanny/llm-prompt-templates/issues/17)) ([59a829c](https://github.com/rpidanny/llm-prompt-templates/commit/59a829cec1a75a8026938ca7837fa57836e01006))
+
 # [1.3.0](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.2.0...llm-prompt-templates-v1.3.0) (2023-05-27)
 
 
