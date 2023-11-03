@@ -1,6 +1,6 @@
 {
   "name": "@rpidanny/llm-prompt-templates",
-  "version": "1.0.1",
+  "version": "1.3.1",
   "type": "commonjs",
   "exports": {
     ".": "./src/index.js",

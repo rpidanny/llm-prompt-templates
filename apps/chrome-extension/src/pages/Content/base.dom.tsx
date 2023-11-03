@@ -1,4 +1,5 @@
 import { IPrompt } from '@rpidanny/llm-prompt-templates';
+import { message } from 'antd';
 import mixpanel from 'mixpanel-browser';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
@@ -6,8 +7,6 @@ import * as ReactDOM from 'react-dom';
 import { Metrics } from './metrics';
 import { groupedPrompts } from './prompts';
 import PromptsView from './PromptsView';
-
-mixpanel.init('1eb7876e8cc0adf4a46631b5ba85b4d5');
 
 export abstract class BaseDom {
   protected abstract name: string;
@@ -26,7 +25,10 @@ export abstract class BaseDom {
 
   init() {
     console.log(`Initializing ${this.name} DOM`);
+
+    mixpanel.init('1eb7876e8cc0adf4a46631b5ba85b4d5');
     mixpanel.identify('local');
+
     this.promptsView = this.createPromptsElement();
     this.addTriggers();
   }
@@ -39,7 +41,16 @@ export abstract class BaseDom {
     });
 
     this.isPromptsViewOpen = false;
-    this.usePrompt(prompt);
+    try {
+      this.usePrompt(prompt);
+    } catch (error) {
+      console.error(error);
+      message.error(
+        'Failed to use prompt. Copying prompt to clipboard instead.',
+        5
+      );
+      this.copyPromptToClipboard(prompt);
+    }
     this.hidePrompts();
   }
 
@@ -59,6 +70,15 @@ export abstract class BaseDom {
       />,
       this.promptsView
     );
+  }
+
+  protected copyPromptToClipboard(prompt: IPrompt) {
+    const clipboardItem = new ClipboardItem({
+      'text/plain': new Blob([prompt.content], { type: 'text/plain' }),
+    });
+    navigator.clipboard.write([clipboardItem]);
+
+    message.info(`${prompt.name} prompt copied to clipboard`, 7);
   }
 
   protected async showPrompts() {
