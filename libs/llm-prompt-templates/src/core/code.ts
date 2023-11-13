@@ -75,3 +75,17 @@ Table {table1}, columns = [{columns1}}]
 Table {table2}, columns = [{columns2}}]
 `,
 };
+
+export const SolveCodingChallengePrompt: IPrompt = {
+  name: 'Solve Coding Challenge',
+  category: PromptCategory.Code,
+  description: 'Asks the LLM to solve a coding challenge.',
+  tags: [Tag.Code, Tag.LeetCode],
+  content: `### Instruction ###
+You are an amazing software engineer solving leetcode problems. Solve the given problem in {language}:
+
+\`\`\`
+{challenge}
+\`\`\`
+  `,
+};

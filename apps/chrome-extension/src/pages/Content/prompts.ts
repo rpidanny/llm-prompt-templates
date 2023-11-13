@@ -3,6 +3,7 @@ import {
   CodeErrorHelpPrompt,
   OptimizeCodePrompt,
   OptimizeCodeWithExplanationPrompt,
+  SolveCodingChallengePrompt,
   SQLQueryPrompt,
   WriteTestsPrompt,
 } from '@rpidanny/llm-prompt-templates/core/code';
@@ -54,6 +55,7 @@ const codePrompts: IPrompt[] = [
   OptimizeCodePrompt,
   OptimizeCodeWithExplanationPrompt,
   CodeErrorHelpPrompt,
+  SolveCodingChallengePrompt,
   SQLQueryPrompt,
 ];
 
