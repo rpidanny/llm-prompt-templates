@@ -8,6 +8,8 @@ import { Metrics } from './metrics';
 import { groupedPrompts } from './prompts';
 import PromptsView from './PromptsView';
 
+mixpanel.init('1eb7876e8cc0adf4a46631b5ba85b4d5');
+
 export abstract class BaseDom {
   protected abstract name: string;
 
@@ -25,8 +27,6 @@ export abstract class BaseDom {
 
   init() {
     console.log(`Initializing ${this.name} DOM`);
-
-    mixpanel.init('1eb7876e8cc0adf4a46631b5ba85b4d5');
     mixpanel.identify('local');
 
     this.promptsView = this.createPromptsElement();
