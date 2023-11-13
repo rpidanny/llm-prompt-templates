@@ -16,4 +16,5 @@ export enum Tag {
   Documentation = 'documentation',
   ProofRead = 'proofread',
   TreeOfThought = 'tree-of-thought',
+  LeetCode = 'leetcode',
 }
