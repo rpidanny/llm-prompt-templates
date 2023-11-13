@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.3.1...llm-prompt-templates-v1.4.0) (2023-11-13)
+
+
+### Features
+
+* add solve coding challenge prompt ([#19](https://github.com/rpidanny/llm-prompt-templates/issues/19)) ([da8462c](https://github.com/rpidanny/llm-prompt-templates/commit/da8462c213fcc0bc5af1843171654793f98488b2))
+
 ## [1.3.1](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.3.0...llm-prompt-templates-v1.3.1) (2023-11-02)
 
 
