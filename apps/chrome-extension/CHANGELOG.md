@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.8.2...chrome-extension-v1.9.0) (2023-11-13)
+
+
+### Features
+
+* add solve coding challenge prompt ([#19](https://github.com/rpidanny/llm-prompt-templates/issues/19)) ([da8462c](https://github.com/rpidanny/llm-prompt-templates/commit/da8462c213fcc0bc5af1843171654793f98488b2))
+
 ## [1.8.2](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.8.1...chrome-extension-v1.8.2) (2023-11-02)
 
 
