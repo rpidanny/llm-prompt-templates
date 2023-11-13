@@ -4,6 +4,7 @@ import './styles.css';
 
 import { IPrompt, PromptCategory } from '@rpidanny/llm-prompt-templates';
 import { Modal } from 'antd';
+import mixpanel from 'mixpanel-browser';
 import React, { useEffect, useState } from 'react';
 
 import PromptsList from '../../components/PromptsList';
