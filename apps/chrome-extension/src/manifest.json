@@ -12,7 +12,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["https://chat.openai.com/*"],
+      "matches": ["https://chat.openai.com/*", "https://chatgpt.com/*"],
       "js": ["chatGPTContentScript.bundle.js"],
       "css": ["chatgpt.content.styles.css"],
       "run_at": "document_end"
@@ -27,7 +27,8 @@
       "matches": ["<all_urls>"],
       "exclude_matches": [
         "https://chat.openai.com/*",
-        "https://bard.google.com/*"
+        "https://bard.google.com/*",
+        "https://chatgpt.com/*"
       ],
       "js": ["defaultContentScript.bundle.js"]
     }
@@ -43,7 +44,7 @@
     },
     {
       "resources": ["chatgpt.content.styles.css"],
-      "matches": ["https://chat.openai.com/*"]
+      "matches": ["https://chat.openai.com/*", "https://chatgpt.com/*"]
     },
     {
       "resources": ["bard.content.styles.css"],
