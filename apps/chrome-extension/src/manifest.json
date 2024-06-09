@@ -24,10 +24,17 @@
       "run_at": "document_end"
     },
     {
+      "matches": ["https://gemini.google.com/*"],
+      "js": ["geminiContentScript.bundle.js"],
+      "css": ["gemini.content.styles.css"],
+      "run_at": "document_end"
+    },
+    {
       "matches": ["<all_urls>"],
       "exclude_matches": [
         "https://chat.openai.com/*",
         "https://bard.google.com/*",
+        "https://gemini.google.com/*",
         "https://chatgpt.com/*"
       ],
       "js": ["defaultContentScript.bundle.js"]
@@ -49,6 +56,10 @@
     {
       "resources": ["bard.content.styles.css"],
       "matches": ["https://bard.google.com/*"]
+    },
+    {
+      "resources": ["gemini.content.styles.css"],
+      "matches": ["https://gemini.google.com/*"]
     }
   ],
   "permissions": ["storage"]
