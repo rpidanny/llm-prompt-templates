@@ -55,6 +55,15 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
         'bard',
         'index.ts'
       ),
+      geminiContentScript: path.join(
+        config.context,
+        'src',
+        'pages',
+        'Content',
+        'llms',
+        'gemini',
+        'index.ts'
+      ),
       defaultContentScript: path.join(
         config.context,
         'src',
@@ -193,6 +202,15 @@ module.exports = composePlugins(withNx(), withReact(), (config) => {
         patterns: [
           {
             from: 'src/pages/Content/llms/bard/bard.content.styles.css',
+            to: path.join(config.output.path),
+            force: true,
+          },
+        ],
+      }),
+      new CopyWebpackPlugin({
+        patterns: [
+          {
+            from: 'src/pages/Content/llms/gemini/gemini.content.styles.css',
             to: path.join(config.output.path),
             force: true,
           },
