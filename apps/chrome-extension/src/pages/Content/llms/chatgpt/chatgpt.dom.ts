@@ -4,7 +4,7 @@ import { LLMDom } from '../llm.dom';
 
 export class ChatGPTDom extends LLMDom {
   protected name = 'ChatGPT';
-  protected textAreaSelector = 'div.relative > textarea';
+  protected textAreaSelector = 'textarea#prompt-textarea';
 
   protected usePrompt(prompt: IPrompt) {
     const textArea = this.getTextArea();
