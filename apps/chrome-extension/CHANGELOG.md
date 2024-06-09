@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.10.0...chrome-extension-v1.11.0) (2024-06-09)
+
+
+### Features
+
+* support gemini ([#21](https://github.com/rpidanny/llm-prompt-templates/issues/21)) ([3166ed8](https://github.com/rpidanny/llm-prompt-templates/commit/3166ed8c2ead68fd5c7181e6c78e53696c0ed692))
+
 # [1.10.0](https://github.com/rpidanny/llm-prompt-templates/compare/chrome-extension-v1.9.0...chrome-extension-v1.10.0) (2024-06-09)
 
 
