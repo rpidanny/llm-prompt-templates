@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.4.0...llm-prompt-templates-v1.5.0) (2024-06-09)
+
+
+### Features
+
+* update chatgpt domain and query selector ([#20](https://github.com/rpidanny/llm-prompt-templates/issues/20)) ([7e94d26](https://github.com/rpidanny/llm-prompt-templates/commit/7e94d26b5f687d4af7d4500c83a3e8cb0cbacc03))
+
 # [1.4.0](https://github.com/rpidanny/llm-prompt-templates/compare/llm-prompt-templates-v1.3.1...llm-prompt-templates-v1.4.0) (2023-11-13)
 
 
