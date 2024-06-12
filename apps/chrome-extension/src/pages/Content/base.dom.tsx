@@ -1,10 +1,14 @@
 import { IPrompt } from '@rpidanny/llm-prompt-templates';
 import { message } from 'antd';
+import mixpanel from 'mixpanel-browser';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+import { Metrics } from './metrics';
 import { groupedPrompts } from './prompts';
 import PromptsView from './PromptsView';
+
+mixpanel.init('1eb7876e8cc0adf4a46631b5ba85b4d5');
 
 export abstract class BaseDom {
   protected abstract name: string;
@@ -23,11 +27,19 @@ export abstract class BaseDom {
 
   init() {
     console.log(`Initializing ${this.name} DOM`);
+    mixpanel.identify('local');
+
     this.promptsView = this.createPromptsElement();
     this.addTriggers();
   }
 
   private handlePromptSelected(prompt: IPrompt): void {
+    console.log('Saving prompt selected metric');
+    mixpanel.track(Metrics.PromptSelected, {
+      promptName: prompt.name,
+      promptCategory: prompt.category,
+    });
+
     this.isPromptsViewOpen = false;
     try {
       this.usePrompt(prompt);
@@ -70,6 +82,8 @@ export abstract class BaseDom {
   }
 
   protected async showPrompts() {
+    mixpanel.track(Metrics.PromptListShown);
+
     this.isPromptsViewOpen = true;
     await this.render();
     this.promptsView.focus();
