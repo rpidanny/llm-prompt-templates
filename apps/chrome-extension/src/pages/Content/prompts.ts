@@ -21,6 +21,7 @@ import {
 import {
   ProofReadAndCorrectPrompt,
   ProofReadPrompt,
+  RewriteFriendlyTextMessagePrompt,
   RewriteToCoolPrompt,
   RewriteToFormalPrompt,
 } from '@rpidanny/llm-prompt-templates/core/writing';
@@ -60,6 +61,7 @@ const codePrompts: IPrompt[] = [
 ];
 
 const writingPrompts: IPrompt[] = [
+  RewriteFriendlyTextMessagePrompt,
   RewriteToFormalPrompt,
   RewriteToCoolPrompt,
   ProofReadPrompt,

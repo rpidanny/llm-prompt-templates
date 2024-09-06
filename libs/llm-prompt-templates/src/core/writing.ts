@@ -2,6 +2,19 @@ import { PromptCategory } from './categories.enum';
 import { IPrompt } from './interfaces';
 import { Tag } from './tags.enum';
 
+export const RewriteFriendlyTextMessagePrompt: IPrompt = {
+  name: 'Rewrite Friendly Text Message',
+  description: `This prompt rewrites your text to make it friendly, funny and elegant. It's useful for making your text messages more fun and interesting.`,
+  tags: [Tag.Transform, Tag.TextMessage],
+  category: PromptCategory.Writing,
+  content: `Rewrite the following text message to make it friendly, funny and elegant:
+
+\`\`\`
+{text}
+\`\`\`
+`,
+};
+
 export const RewriteToFormalPrompt: IPrompt = {
   name: 'Rewrite to Formal',
   description: `This prompt rewrites your text into formal writing. It's useful for writing emails, essays, reports, and other formal documents.`,
